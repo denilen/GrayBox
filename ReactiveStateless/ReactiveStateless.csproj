@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="stateless" Version="5.10.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Examples" />
+    </ItemGroup>
+
+</Project>
