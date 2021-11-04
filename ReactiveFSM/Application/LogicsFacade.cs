@@ -18,9 +18,8 @@ namespace ReactiveFSM.Application
         private static IScheduler Scheduler { get; } = TaskPoolScheduler.Default;
 
         //public properties
-
-        private readonly Subject<MatchMessage> _messageQueue;
-        private readonly IDisposable _messageQueueDisposer;
+        private readonly Subject<MatchMessage>                 _messageQueue;
+        private readonly IDisposable                           _messageQueueDisposer;
         private readonly ConcurrentDictionary<Guid, LogicBase> _logicStore = new();
 
         //ctor
@@ -28,17 +27,17 @@ namespace ReactiveFSM.Application
         {
             _messageQueue = new Subject<MatchMessage>();
 
-            IObservable<Unit> results = _messageQueue.GroupBy(item => item.MatchId)
-                .SelectMany(group =>
-                    group.ObserveOn(Scheduler)
-                        .Select(item => ProcessMessage(item).ToObservable(Scheduler).Wait())
-                );
+            var results = _messageQueue.GroupBy(item => item.MatchId)
+                                       .SelectMany(group =>
+                                           group.ObserveOn(Scheduler)
+                                                .Select(item =>
+                                                    ProcessMessage(item).ToObservable(Scheduler).Wait())
+                                       );
 
             _messageQueueDisposer = results.Subscribe();
         }
 
         //public methods
-
         public void Push(MatchMessage message)
         {
             _messageQueue.OnNext(message);

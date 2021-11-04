@@ -13,7 +13,7 @@ namespace ReactiveFSM
 
             for (var i = 1; i < 10; i++)
             {
-                var calculateBets = new CalculateBets { MatchId = i };
+                var calculateBets = new CalculateBets {MatchId = i};
                 matchFacade.Push(calculateBets);
 
                 Thread.Sleep(10);

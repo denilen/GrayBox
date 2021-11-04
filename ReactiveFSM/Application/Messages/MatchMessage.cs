@@ -1,10 +1,10 @@
 namespace ReactiveFSM.Application.Messages
 {
-	/// <summary>
-	///  Данные по ставке
-	/// </summary>
-	public class MatchMessage
-	{
-		public long MatchId { get; set; }
-	}
+    /// <summary>
+    ///  Данные по ставке
+    /// </summary>
+    public class MatchMessage
+    {
+        public long MatchId { get; set; }
+    }
 }

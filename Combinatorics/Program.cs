@@ -27,7 +27,7 @@ namespace Combinatorics
             {
                 j = m - 1;
 
-                while (j >= 0
+                while (j       >= 0
                        && a[j] == maxValues[j])
                     j--;
 

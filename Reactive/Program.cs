@@ -9,57 +9,52 @@ using System.Threading.Tasks;
 
 namespace Reactive
 {
-	internal static class Program
-	{
-		private static void Main(string[] args)
-		{
-			var dialogSubject = new Subject<TaskCalculate>();
+    internal static class Program
+    {
+        private static void Main(string[] args)
+        {
+            var dialogSubject = new Subject<TaskCalculate>();
+            var scheduler     = TaskPoolScheduler.Default;
+            var results = dialogSubject.GroupBy(item => item.MatchId)
+                                       .SelectMany(group =>
+                                           group.ObserveOn(scheduler)
+                                                .Select(item => Process(item).ToObservable(scheduler).Wait())
+                                       );
+            var groupDisposer = results.Subscribe();
 
-			//var scheduler = ThreadPoolScheduler.Instance;
-			var scheduler = TaskPoolScheduler.Default;
+            using (groupDisposer)
+            {
+                for (var i = 0; i < 40; i++)
+                {
+                    dialogSubject.OnNext(Foo(1, $"1.{i}"));
+                    dialogSubject.OnNext(Foo(2, $"2.{i}"));
+                }
 
-			var results = dialogSubject.GroupBy(item => item.MatchId)
-				.SelectMany(group =>
-					group.ObserveOn(scheduler)
-					.Select(item => Process(item).ToObservable(scheduler).Wait())
-				);
+                Console.ReadLine();
+            }
 
-			var groupDisposer = results.Subscribe();
+            static async Task<Unit> Process(TaskCalculate t)
+            {
+                Console.WriteLine($"Started: {t.Message}  ThreadId: {Thread.CurrentThread.ManagedThreadId}");
 
-			using (groupDisposer)
-			{
-				for (var i = 0; i < 40; i++)
-				{
-					dialogSubject.OnNext(Foo(1, $"1.{i}"));
-					dialogSubject.OnNext(Foo(2, $"2.{i}"));
-				}
+                await Task.Delay(1000);
 
-				Console.ReadLine();
-			}
+                Console.WriteLine($"Finished: {t.Message}");
 
-			static async Task<Unit> Process(TaskCalculate t)
-			{
-				Console.WriteLine($"Started: {t.Message}  ThreadId: {Thread.CurrentThread.ManagedThreadId}");
+                return Unit.Default;
+            }
+        }
 
-				await Task.Delay(1000);
+        private static TaskCalculate Foo(long matchId, string message)
+        {
+            var calc = new TaskCalculate
+            {
+                MatchId = matchId,
+                LogicId = null,
+                Message = message
+            };
 
-				Console.WriteLine($"Finished: {t.Message}");
-				// Console.WriteLine($"Finished: {t.Message}  ThreadId: {Thread.CurrentThread.ManagedThreadId}");
-
-				return Unit.Default;
-			}
-		}
-
-		private static TaskCalculate Foo(long matchId, string message)
-		{
-			var calc = new TaskCalculate
-			{
-				MatchId = matchId,
-				LogicId = null,
-				Message = message
-			};
-
-			return calc;
-		}
-	}
+            return calc;
+        }
+    }
 }

@@ -30,45 +30,43 @@ namespace ReactiveStateless.Examples.PhoneCall
 
         private State _state = State.OffHook;
 
-        private readonly StateMachine<State, Trigger> _machine;
-        private readonly StateMachine<State, Trigger>.TriggerWithParameters<int> _setVolumeTrigger;
-
+        private readonly StateMachine<State, Trigger>                               _machine;
+        private readonly StateMachine<State, Trigger>.TriggerWithParameters<int>    _setVolumeTrigger;
         private readonly StateMachine<State, Trigger>.TriggerWithParameters<string> _setCalleeTrigger;
-
-        private readonly string _caller;
-
-        private string _callee;
+        private readonly string                                                     _caller;
+        private          string                                                     _callee;
 
         public PhoneCall(string caller)
         {
-            _caller = caller;
-            _machine = new StateMachine<State, Trigger>(() => _state, s => _state = s);
-
+            _caller           = caller;
+            _machine          = new StateMachine<State, Trigger>(() => _state, s => _state = s);
             _setVolumeTrigger = _machine.SetTriggerParameters<int>(Trigger.SetVolume);
             _setCalleeTrigger = _machine.SetTriggerParameters<string>(Trigger.CallDialed);
 
             _machine.Configure(State.OffHook)
-	            .Permit(Trigger.CallDialed, State.Ringing);
+                    .Permit(Trigger.CallDialed, State.Ringing);
 
             _machine.Configure(State.Ringing)
-                .OnEntryFrom(_setCalleeTrigger, callee => OnDialed(callee), "Caller number to call")
-	            .Permit(Trigger.CallConnected, State.Connected);
+                    .OnEntryFrom(_setCalleeTrigger, OnDialed, "Caller number to call")
+                    .Permit(Trigger.CallConnected, State.Connected);
 
             _machine.Configure(State.Connected)
-                .OnEntry(t => StartCallTimer())
-                .OnExit(t => StopCallTimer())
-                .InternalTransition(Trigger.MuteMicrophone, t => OnMute())
-                .InternalTransition(Trigger.UnmuteMicrophone, t => OnUnmute())
-                .InternalTransition<int>(_setVolumeTrigger, (volume, t) => OnSetVolume(volume))
-                .Permit(Trigger.LeftMessage, State.OffHook)
-	            .Permit(Trigger.PlacedOnHold, State.OnHold);
+                    .OnEntry(t => StartCallTimer())
+                    .OnExit(t => StopCallTimer())
+                    .InternalTransition(Trigger.MuteMicrophone,   t => OnMute())
+                    .InternalTransition(Trigger.UnmuteMicrophone, t => OnUnmute())
+                    .InternalTransition(_setVolumeTrigger,        (volume, t) => OnSetVolume(volume))
+                    .Permit(Trigger.LeftMessage,  State.OffHook)
+                    .Permit(Trigger.PlacedOnHold, State.OnHold);
 
             _machine.Configure(State.OnHold)
-                .SubstateOf(State.Connected)
-                .Permit(Trigger.TakenOffHold, State.Connected)
-                .Permit(Trigger.PhoneHurledAgainstWall, State.PhoneDestroyed);
+                    .SubstateOf(State.Connected)
+                    .Permit(Trigger.TakenOffHold,           State.Connected)
+                    .Permit(Trigger.PhoneHurledAgainstWall, State.PhoneDestroyed);
 
-            _machine.OnTransitioned(t => Console.WriteLine($"OnTransitioned: {t.Source} -> {t.Destination} via {t.Trigger}({string.Join(", ",  t.Parameters)})"));
+            _machine.OnTransitioned(t =>
+                Console.WriteLine(
+                    $"OnTransitioned: {t.Source} -> {t.Destination} via {t.Trigger}({string.Join(", ", t.Parameters)})"));
         }
 
         private static void OnSetVolume(int volume)
@@ -78,7 +76,7 @@ namespace ReactiveStateless.Examples.PhoneCall
 
         private static void OnUnmute()
         {
-            Console.WriteLine("Microphone unmuted!");
+            Console.WriteLine("Microphone unMuted!");
         }
 
         private static void OnMute()

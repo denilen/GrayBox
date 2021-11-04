@@ -1,27 +1,24 @@
 ﻿using System;
 using System.Reactive.Linq;
 
-namespace GrayBox_Throttle
+namespace Throttle
 {
-	internal class Program
-	{
-		private static void Main(string[] args)
-		{
-			var rand = new Random();
+    internal static class Program
+    {
+        private static void Main(string[] args)
+        {
+            var rand = new Random();
+            var source = Observable.Interval(TimeSpan.FromSeconds(rand.Next(1, 2)))
+                                   .Do(i => Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: new item: {i}"));
+            var sampling = source.Throttle(TimeSpan.FromSeconds(1))
+                                 .Do(i => Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: throttle item: {i}"));
+            var subscription = sampling.Subscribe();
 
-			var source = Observable.Interval(TimeSpan.FromSeconds(rand.Next(1, 2)))
-				.Do(i => Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: new item: {i}"));
+            Console.ReadLine();
 
-			var sampling = source.Throttle(TimeSpan.FromSeconds(1))
-				.Do(i => Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: throttle item: {i}"));
+            subscription.Dispose();
 
-			var subscription = sampling.Subscribe();
-
-			Console.ReadLine();
-
-			subscription.Dispose();
-
-			Console.ReadLine();
-		}
-	}
+            Console.ReadLine();
+        }
+    }
 }

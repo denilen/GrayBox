@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactiveStateless", "Reacti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Throttle", "Throttle\Throttle.csproj", "{B622512E-5A8F-4AD3-800C-F1F99FE44C29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guid", "Guid\Guid.csproj", "{1657B4BC-5C3A-4BF5-92B2-A37851092B77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{B622512E-5A8F-4AD3-800C-F1F99FE44C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B622512E-5A8F-4AD3-800C-F1F99FE44C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B622512E-5A8F-4AD3-800C-F1F99FE44C29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1657B4BC-5C3A-4BF5-92B2-A37851092B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1657B4BC-5C3A-4BF5-92B2-A37851092B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1657B4BC-5C3A-4BF5-92B2-A37851092B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1657B4BC-5C3A-4BF5-92B2-A37851092B77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F750E067-B565-4890-B772-676A43434934} = {8E838322-09D8-43CA-B809-0CEDE7B8F0DB}

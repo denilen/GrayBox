@@ -1,7 +1,6 @@
 namespace FSM.Logic
 {
-	public class CalculateBetsMessage : MatchMessage
-	{
-
-	}
+    public class CalculateBetsMessage : MatchMessage
+    {
+    }
 }
