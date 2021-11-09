@@ -8,27 +8,27 @@ namespace Combinatorics
     {
         private static void Main(string[] args)
         {
-            foreach (var arrangement in Arrangements(new[] {1, 2, 3, 2}.ToArray()))
+            foreach (var arrangement in Arrangements(new[] {9, 9, 9, 9}.ToArray()))
             {
-                var arr = string.Join(", ", arrangement);
-                Console.WriteLine(arr);
+                var combinator = string.Join(", ", arrangement);
+                Console.WriteLine(combinator);
             }
         }
 
-        private static IEnumerable<int[]> Arrangements(this int[] maxValues)
+        private static IEnumerable<int[]> Arrangements(this IReadOnlyList<int> maxValues)
         {
-            var a = new int[maxValues.Length];
-            var m = maxValues.Length;
+            var a = new int[maxValues.Count];
+            var m = maxValues.Count;
 
             yield return a;
 
             int j;
+
             do
             {
                 j = m - 1;
 
-                while (j       >= 0
-                       && a[j] == maxValues[j])
+                while (j >= 0 && a[j] == maxValues[j])
                     j--;
 
                 if (j < 0)
