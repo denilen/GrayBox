@@ -22,6 +22,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guid", "Guid\Guid.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomapperJsonConvertor", "AutomapperJsonConvertor\AutomapperJsonConvertor.csproj", "{C5ED5C9F-519A-431C-8F71-007681D0F825}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Performance", "Performance", "{B8DFCC43-DF4F-4A2B-AA62-C171F49A855B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IfElse", "IfElse\IfElse.csproj", "{C0101822-F720-4EB1-8457-CC4DDB784EA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,9 +72,14 @@ Global
 		{C5ED5C9F-519A-431C-8F71-007681D0F825}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5ED5C9F-519A-431C-8F71-007681D0F825}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5ED5C9F-519A-431C-8F71-007681D0F825}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0101822-F720-4EB1-8457-CC4DDB784EA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0101822-F720-4EB1-8457-CC4DDB784EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0101822-F720-4EB1-8457-CC4DDB784EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0101822-F720-4EB1-8457-CC4DDB784EA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F750E067-B565-4890-B772-676A43434934} = {8E838322-09D8-43CA-B809-0CEDE7B8F0DB}
 		{50BBDCD8-427D-4626-B9CA-D55C3EC83EC3} = {8E838322-09D8-43CA-B809-0CEDE7B8F0DB}
+		{C0101822-F720-4EB1-8457-CC4DDB784EA8} = {B8DFCC43-DF4F-4A2B-AA62-C171F49A855B}
 	EndGlobalSection
 EndGlobal
