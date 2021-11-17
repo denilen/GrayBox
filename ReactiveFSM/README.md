@@ -1,4 +1,4 @@
-# GrayBox RxNet + Finiti State Machine
+# GrayBox RxNet + Finite-State Machine
 
 Implementation of reactive programming together with a state machine.
 In RxNet there is a grouping of tasks arriving in the flow.
