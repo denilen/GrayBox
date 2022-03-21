@@ -48,7 +48,7 @@ namespace ReactiveFSM.Application
             _messageQueueDisposer.Dispose();
         }
 
-        private async Task<Unit> ProcessMessage(MatchMessage matchMessage)
+        private Task<Unit> ProcessMessage(MatchMessage matchMessage)
         {
             LogicBase logic;
 
@@ -59,22 +59,18 @@ namespace ReactiveFSM.Application
             else
             {
                 //aka LogicFactory
-                switch (matchMessage)
+                logic = matchMessage switch
                 {
-                    case CalculateBets:
-                        logic = new CalculateBetsLogic();
-                        break;
-
-                    default:
-                        throw new InvalidOperationException($"Unknown message type: '{matchMessage.GetType()}'");
-                }
+                    CalculateBets => new CalculateBetsLogic(),
+                    _ => throw new InvalidOperationException($"Unknown message type: '{matchMessage.GetType()}'")
+                };
 
                 _logicStore[logic.Id] = logic;
             }
 
             logic.PushMessage(matchMessage);
 
-            return Unit.Default;
+            return Task.FromResult(Unit.Default);
         }
 
         //public statics
