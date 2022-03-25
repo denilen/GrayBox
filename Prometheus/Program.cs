@@ -1,29 +1,48 @@
-using Prometheus;
+using Microsoft.AspNetCore;
+using ILogger = Microsoft.Extensions.Logging.ILogger;
+using Prometheus.Extensions;
 
-var builder = WebApplication.CreateBuilder(args);
+namespace Prometheus;
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+public class Program
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    public static int Main(string[] args)
+    {
+        ILogger? log = null;
+        try
+        {
+            var host = CreateWebHostBuilder(args)
+                       .ConfigureAppConfiguration((hostingContext, config) =>
+                       {
+                           config.Sources.Clear();
+                           config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: false);
+                           config.AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json",
+                               optional: true, reloadOnChange: false);
+                           config.AddJsonFile("secrets/appsettings.json", optional: true, reloadOnChange: false);
+                           config.AddAppSettingsJsonFromEnvVariable("APPSETTINGS");
+                           config.AddEnvironmentVariables();
+                       }).Build();
+
+            log = host.Services.GetService<ILogger<Program>>();
+            log?.LogInformation("Application is starting...");
+
+            host.Run();
+
+            return 0;
+        }
+        catch (Exception ex)
+        {
+            log?.LogCritical(ex, "Application terminated unexpectedly");
+            if (log == null)
+            {
+                Console.WriteLine(ex);
+            }
+
+            return 1;
+        }
+    }
+
+    private static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+               .UseStartup<StartUp>();
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.UseMetricServer();
-
-app.Run();
