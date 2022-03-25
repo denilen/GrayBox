@@ -1,4 +1,3 @@
-using AutoMapper;
 using Prometheus.Extensions;
 
 namespace Prometheus;
@@ -30,5 +29,7 @@ public class StartUp
 
         app.UseAppMetrics();
         app.UseAppMvc();
+        
+        logger.LogInformation("Application has been started");
     }
 }
