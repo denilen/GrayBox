@@ -45,6 +45,7 @@ namespace Gotrg.Common.Logging
         public string UpdateContent(string content)
         {
             Init();
+            
             foreach (var securityType in _typeModels)
             {
                 var schema =

@@ -13,8 +13,9 @@ public class StartUp
 
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddAppMetrics(Configuration);
+        // services.AddAppMetrics(Configuration);
         services.AddAppMvc();
+        services.AddMetrics();
     }
 
     public void Configure(IApplicationBuilder app,
@@ -27,7 +28,7 @@ public class StartUp
             app.UseSwaggerUI();
         }
 
-        app.UseAppMetrics();
+        // app.UseAppMetrics();
         app.UseAppMvc();
         
         logger.LogInformation("Application has been started");
