@@ -40,7 +40,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPPlusDemo", "EPPlusDemo\EPPlusDemo.csproj", "{ADCC1FB8-5444-4C8F-B042-68D896081F23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USBDevices", "USBDevices\USBDevices.csproj", "{8751662B-9E01-4A79-B17E-0037DDEF9E44}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USBDevicesV1", "USBDevicesV1\USBDevicesV1.csproj", "{8751662B-9E01-4A79-B17E-0037DDEF9E44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

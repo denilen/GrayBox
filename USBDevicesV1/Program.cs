@@ -3,7 +3,7 @@ using LibUsbDotNet;
 using LibUsbDotNet.Info;
 using LibUsbDotNet.Main;
 
-namespace USBDevices
+namespace USBDevicesV1
 {
     internal static class Program
     {
