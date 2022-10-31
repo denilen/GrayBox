@@ -1,4 +1,6 @@
-﻿using OfficeOpenXml;
+﻿using System.Drawing;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 
 namespace EPPlus;
 
@@ -7,8 +9,8 @@ internal static class Program
     private static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
-        
-        using(var package = new ExcelPackage(@"1.xlsx"))
+
+        using (var package = new ExcelPackage(@"1.xlsx"))
         {
             var sheet = package.Workbook.Worksheets.Add("1");
             sheet.Cells["A1"].Value = "Hello World!";
@@ -20,18 +22,42 @@ internal static class Program
         using (var package = new ExcelPackage(@"2.xlsx"))
         {
             var worksheet = package.Workbook.Worksheets.Add("2");
-            
+
             worksheet.Cells["B1"].Value = "This is cell B1"; // Sets the value of Cell B1
             worksheet.Cells[1, 2].Value = "This is cell B1"; // Also sets the value of Cell B1
 
-            worksheet.Cells["A1:B3"].Style.Numberformat.Format = "#,##0"; //Sets the numberformat for a range
-            worksheet.Cells[1,1,3,2].Style.Numberformat.Format = "#,##0"; //Same as above,A1:B3
+            worksheet.Cells["A1:B3"].Style.Numberformat.Format    = "#,##0"; //Sets the numberformat for a range
+            worksheet.Cells[1, 1, 3, 2].Style.Numberformat.Format = "#,##0"; //Same as above,A1:B3
 
             worksheet.Cells["A1:B3,D1:E57"].Style.Numberformat.Format = "#,##0"; //Sets the numberformat for a range containing two addresses.
-            worksheet.Cells["A:B"].Style.Font.Bold = true; //Sets font-bold to true for column A & B
-            worksheet.Cells["1:1,A:A,C3"].Style.Font.Bold = true; //Sets font-bold to true for row 1,column A and cell C3
-            worksheet.Cells["A:XFD"].Style.Font.Name = "Arial"; //Sets font to Arial for all cells in a worksheet.
-            worksheet.Cells.Style.Font.Name = "Arial"; //This is equal to the above.
+            worksheet.Cells["A:B"].Style.Font.Bold        = true;    //Sets font-bold to true for column A & B
+            worksheet.Cells["1:1,A:A,C3"].Style.Font.Bold = true;    //Sets font-bold to true for row 1,column A and cell C3
+            worksheet.Cells["A:XFD"].Style.Font.Name      = "Arial"; //Sets font to Arial for all cells in a worksheet.
+            worksheet.Cells.Style.Font.Name               = "Arial"; //This is equal to the above.
+
+            worksheet.Cells["A1:B3,D1:E57"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            worksheet.Cells["A1:B3,D1:E57"].Style.Fill.BackgroundColor.SetColor(Color.Aquamarine);
+            worksheet.Column(2).Width = 350;
+
+            //integer (not really needed unless you need to round numbers, Excel will use default cell properties)
+            worksheet.Cells["A1:A25"].Style.Numberformat.Format = "0";
+            //integer without displaying the number 0 in the cell
+            worksheet.Cells["A1:A25"].Style.Numberformat.Format = "#";
+            //number with 1 decimal place
+            worksheet.Cells["A1:A25"].Style.Numberformat.Format = "0.0";
+            //number with 2 decimal places
+            worksheet.Cells["A1:A25"].Style.Numberformat.Format = "0.00";
+            //number with 2 decimal places and thousand separator
+            worksheet.Cells["A1:A25"].Style.Numberformat.Format = "#,##0.00";
+            //number with 2 decimal places and thousand separator and money symbol
+            worksheet.Cells["A1:A25"].Style.Numberformat.Format = "€#,##0.00";
+            //percentage (1 = 100%, 0.01 = 1%)
+            worksheet.Cells["A1:A25"].Style.Numberformat.Format = "0%";
+            //accounting number format
+            worksheet.Cells["A1:A25"].Style.Numberformat.Format = "_-$* #,##0.00_-;-$* #,##0.00_-;_-$* \"-\"??_-;_-@_-";
+
+            worksheet.Cells[1, 5].Style.Numberformat.Format = "###,###,##0.00";
+            worksheet.Cells[1, 5].Value                     = 24558.4780;
 
             package.Save();
         }

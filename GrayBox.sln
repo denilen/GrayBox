@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPPlusDemo", "EPPlusDemo\EP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USBDevicesV1", "USBDevicesV1\USBDevicesV1.csproj", "{8751662B-9E01-4A79-B17E-0037DDEF9E44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XiaomiSmartGateway", "XiaomiSmartGateway\XiaomiSmartGateway.csproj", "{3EAF427C-8F80-44F0-9A63-FC60B57A5D02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -124,6 +126,10 @@ Global
 		{8751662B-9E01-4A79-B17E-0037DDEF9E44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8751662B-9E01-4A79-B17E-0037DDEF9E44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8751662B-9E01-4A79-B17E-0037DDEF9E44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EAF427C-8F80-44F0-9A63-FC60B57A5D02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EAF427C-8F80-44F0-9A63-FC60B57A5D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EAF427C-8F80-44F0-9A63-FC60B57A5D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EAF427C-8F80-44F0-9A63-FC60B57A5D02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F750E067-B565-4890-B772-676A43434934} = {8E838322-09D8-43CA-B809-0CEDE7B8F0DB}
