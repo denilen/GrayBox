@@ -5,10 +5,10 @@ using LibUsbDotNet.Main;
 
 namespace USBDevicesV1
 {
-    internal static class Program
+    public static class Program
     {
         private static UsbDevice? _myUsbDevice;
-        
+
         private static void Main(string[] args)
         {
             // Dump all devices and descriptor information to console output.
