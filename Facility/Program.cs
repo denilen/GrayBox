@@ -16,11 +16,11 @@ namespace Facility
                 "facilityStaging.csv",
                 "FacilityDev.csv"
             };
-            var facilityAddress = new List<FacilityAddress>();
+            // var facilityAddress = new List<FacilityAddress>();
 
             foreach (var file in facilityFiles)
             {
-                var facility = File.ReadAllLines($"./facility/{file}");
+                var facility = File.ReadAllLines($"./FacilityCvs/{file}");
 
                 switch (file)
                 {

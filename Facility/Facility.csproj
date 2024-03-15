@@ -25,16 +25,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="facility\facilityProduction.csv">
+      <None Update="FacilityCvs\FacilityDev.csv">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="facility\FacilityDev.csv">
+      <None Update="FacilityCvs\facilityProduction.csv">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="facility\facilityRC13.csv">
+      <None Update="FacilityCvs\facilityRC13.csv">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="facility\facilityStaging.csv">
+      <None Update="FacilityCvs\facilityStaging.csv">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
