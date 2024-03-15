@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace ConsoleApp.Here
+namespace Facility.Here
 {
     public class HereGeoCoderDto
     {

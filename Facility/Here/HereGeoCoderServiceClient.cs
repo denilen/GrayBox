@@ -3,14 +3,14 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using ConsoleApp.Here.Abstract;
-using ConsoleApp.Here.ClientOptions;
-using ConsoleApp.HttpClient;
+using Facility.Here.Abstract;
+using Facility.Here.ClientOptions;
+using Facility.HttpClient;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 
-namespace ConsoleApp.Here
+namespace Facility.Here
 {
     public class HereGeoCoderServiceClient : BaseServiceClient<HereOptions>, IHereGeoCoderServiceClient
     {

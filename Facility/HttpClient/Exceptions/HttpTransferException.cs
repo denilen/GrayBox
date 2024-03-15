@@ -1,4 +1,4 @@
-namespace ConsoleApp.HttpClient.Exceptions
+namespace Facility.HttpClient.Exceptions
 {
     public class HttpTransferException : BaseException
     {

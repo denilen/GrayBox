@@ -5,10 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using ConsoleApp.Here;
+using Facility.Here;
 using Newtonsoft.Json;
 
-namespace ConsoleApp
+namespace Facility
 {
     internal class Program
     {

@@ -1,4 +1,4 @@
-namespace ConsoleApp.Here.Model
+namespace Facility.Here.Model
 {
     public class GeoCoderModel
     {

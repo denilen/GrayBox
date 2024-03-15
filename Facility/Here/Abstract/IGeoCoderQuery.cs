@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using ConsoleApp.Here.Model;
+using Facility.Here.Model;
 
-namespace ConsoleApp.Here.Abstract
+namespace Facility.Here.Abstract
 {
     public interface IGeoCoderQuery
     {

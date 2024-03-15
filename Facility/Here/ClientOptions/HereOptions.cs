@@ -1,6 +1,6 @@
-using ConsoleApp.HttpClient;
+using Facility.HttpClient;
 
-namespace ConsoleApp.Here.ClientOptions
+namespace Facility.Here.ClientOptions
 {
     public class HereOptions : BaseClientOptions
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace ConsoleApp.HttpClient.Exceptions
+namespace Facility.HttpClient.Exceptions
 {
     public abstract class BaseException : Exception
     {

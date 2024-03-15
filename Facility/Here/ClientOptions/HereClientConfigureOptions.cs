@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace ConsoleApp.Here.ClientOptions
+namespace Facility.Here.ClientOptions
 {
     public class HereClientConfigureOptions : ServiceClientConfigureOptions<HereOptions>
     {
@@ -11,10 +11,10 @@ namespace ConsoleApp.Here.ClientOptions
             _configuration = configuration;
         }
 
-        public override void Configure(HereOptions options)
-        {
-            base.Configure(options);
-            _configuration.GetSection("HereClient").Bind(options);
-        }
+        // public override void Configure(HereOptions options)
+        // {
+        //     base.Configure(options);
+        //     _configuration.GetSection("HereClient").Bind(options);
+        // }
     }
 }

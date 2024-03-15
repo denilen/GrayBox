@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp.HttpClient
+namespace Facility.HttpClient
 {
     public abstract class BaseClientOptions
     {

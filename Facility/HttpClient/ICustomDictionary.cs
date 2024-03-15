@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ConsoleApp.HttpClient
+namespace Facility.HttpClient
 {
     public interface ICustomDictionary: IEnumerable<KeyValuePair<string, string>>
     {

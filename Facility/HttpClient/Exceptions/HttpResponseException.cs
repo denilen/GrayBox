@@ -1,7 +1,7 @@
 using System.Net;
 using System.Net.Http;
 
-namespace ConsoleApp.HttpClient.Exceptions
+namespace Facility.HttpClient.Exceptions
 {
     public class HttpResponseException : BaseException
     {

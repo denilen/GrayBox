@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ConsoleApp.Here.Abstract
+namespace Facility.Here.Abstract
 {
     public interface IHereGeoCoderServiceClient
     {

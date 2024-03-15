@@ -7,11 +7,11 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using ConsoleApp.HttpClient.Exceptions;
+using Facility.HttpClient.Exceptions;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace ConsoleApp.HttpClient
+namespace Facility.HttpClient
 {
     public abstract class BaseServiceClient<TOptions> where TOptions : BaseClientOptions, new()
     {

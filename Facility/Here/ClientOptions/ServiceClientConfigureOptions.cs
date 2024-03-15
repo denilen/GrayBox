@@ -1,8 +1,8 @@
 using System.Reflection;
-using ConsoleApp.HttpClient;
+using Facility.HttpClient;
 using Microsoft.Extensions.Options;
 
-namespace ConsoleApp.Here.ClientOptions
+namespace Facility.Here.ClientOptions
 {
     public class ServiceClientConfigureOptions<T> : IConfigureOptions<T> where T : BaseClientOptions
     {
