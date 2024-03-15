@@ -1,14 +1,7 @@
-using System;
-using System.IO;
-using System.Linq;
-using Gotrg.Common.Logging;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace Gotrg.Common.WebAPI.Filters
+namespace Prometheus.Extensions
 {
     public class LoggingActionFilterAttribute : Attribute, IActionFilter
     {
@@ -17,7 +10,7 @@ namespace Gotrg.Common.WebAPI.Filters
         public void OnActionExecuting(ActionExecutingContext context)
         {
             var genericType = typeof(ILogger<>).MakeGenericType(context.Controller.GetType());
-            var logger = (ILogger)context.HttpContext.RequestServices.GetService(genericType);
+            var logger = (ILogger)context.HttpContext.RequestServices.GetService(genericType)!;
 
             try
             {

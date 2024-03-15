@@ -3,15 +3,14 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using NJsonSchema;
 using NJsonSchema.Generation;
-using Prometheus.Extensions;
 
-namespace Gotrg.Common.Logging
+namespace Prometheus.Extensions
 {
     public class HttpContentSecurityFilter
     {
-        private static bool _enabled;
-        private static HttpContentSecurityFilter CurrentInstance { get; set; }
-        private List<Type> _typeModels;
+        private static bool                       _enabled;
+        private static HttpContentSecurityFilter? CurrentInstance { get; set; }
+        private        List<Type>                 _typeModels;
 
         private HttpContentSecurityFilter()
         {

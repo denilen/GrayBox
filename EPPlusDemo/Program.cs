@@ -2,7 +2,7 @@
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 
-namespace EPPlus;
+namespace EPPlusDemo;
 
 internal static class Program
 {

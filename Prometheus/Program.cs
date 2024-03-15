@@ -9,6 +9,7 @@ public class Program
     public static int Main(string[] args)
     {
         ILogger? log = null;
+        
         try
         {
             var host = CreateWebHostBuilder(args)

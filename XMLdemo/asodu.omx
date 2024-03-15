@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<omx xmlns="system" migration="27" xmlns:dp="automation.deployment" xmlns:eth="automation.ethernet" xmlns:srv="server" xmlns:ct="automation.control" xmlns:a="automation" xmlns:r="automation.reference" xmlns:opc="automation.opc">
+  <link-unit name="System" uuid="13f6f2ab-cc63-4281-a5af-6fa96f5a1fdb" target="Om.System" />
+  <link-unit name="Server" uuid="90c280c9-fa4e-4f76-899d-2a72a4991c64" target="Om.Server" />
+  <link-unit name="PLC" uuid="bd73c7d3-9b37-4920-9f42-7ebb8b559262" target="Om.PLC" />
+  <dp:domain name="DomainCOD" uuid="be811812-b4da-450d-a526-07c4c63f542e" address="MainNode">
+    <dp:domain-node name="MainNode" uuid="0bad6017-1866-487d-abd0-d6da338eb428">
+      <eth:ethernet-adapter name="EthernetAdapter" uuid="7b41ede2-c58b-40e4-9e23-a597a973f9e5" address="10.90.11.127" network="Ethernet" />
+      <srv:io-server name="AlphaServer" uuid="c66f5469-1a63-414c-aeaa-b474cd4743ed">
+        <srv:opcda-server name="DaServer" uuid="e391e528-c625-4c9c-bb29-27391e577059">
+          <eth:ethernet-adapter-binding adapter="EthernetAdapter" />
+        </srv:opcda-server>
+        <srv:opcaeserver-module name="AeServer" uuid="1315754e-0259-4015-ac97-94426afe1076">
+          <eth:ethernet-adapter-binding adapter="EthernetAdapter" />
+        </srv:opcaeserver-module>
+        <srv:hda-server name="HdaServer" uuid="75ee1cc5-bb41-406d-8233-0d9dff62c841">
+          <eth:ethernet-adapter-binding adapter="EthernetAdapter" />
+        </srv:hda-server>
+        <srv:opcua-module name="UaServer" uuid="938a1f72-f532-4c79-90d5-506b6f84caf3">
+          <eth:ethernet-adapter-binding adapter="EthernetAdapter" />
+        </srv:opcua-module>
+        <srv:tcp-server name="TcpServer" uuid="7e7abc1a-4813-40de-84fc-422a629bee79" history-port="4950">
+          <eth:ethernet-adapter-binding adapter="EthernetAdapter" />
+        </srv:tcp-server>
+        <srv:history-module name="HistoryModule" uuid="1afb0136-fb6f-4cc3-b9b1-e1a6cf18e4a2">
+          <srv:historian-database-link database="Historian.Database" />
+        </srv:history-module>
+        <dp:application-object name="MainApplication" uuid="41f20358-6e92-42dc-8ae1-07802c2e2e18">
+          <opc:opcda-link-map name="OpcDaAddressMap" uuid="b49c374b-c323-4e0b-b065-60af53286f38" file="Maps\OPCDAAddressMap.xml" />
+          <ct:object name="LN" uuid="4fb5757e-1aa1-4554-9153-86fe723f49ec" original="PLC1.Runtime.Application.LN" aspect="Aspects.IOS">
+            <ct:object name="LN" uuid="d525aa58-e3ae-47cc-95bb-0e2d213c0a46" original="PLC1.Runtime.Application.LN.LN" aspect="Aspects.IOS">
+              <ct:object name="LN01" uuid="4be4fa45-b7e0-42a0-b6c6-5856e0410eb9" original="PLC1.Runtime.Application.LN.LN.LN01" aspect="Aspects.IOS">
+                <ct:object name="LSP" uuid="d5d64d9d-d206-4aa4-af1b-e3e34a4da8fa" original="PLC1.Runtime.Application.LN.LN.LN01.LSP" aspect="Aspects.IOS">
+                  <ct:object name="FOND" uuid="8bd98dca-4f94-4086-823a-5ea7d359ecc1" original="PLC1.Runtime.Application.LN.LN.LN01.LSP.FOND" aspect="Aspects.IOS">
+                    <ct:object name="SKV3" uuid="37185343-a099-435d-9df3-1178915dbece" original="PLC1.Runtime.Application.LN.LN.LN01.LSP.FOND.SKV3" base-type="Templates.Wells.OilWell_IOS" aspect="Aspects.IOS">
+                      <r:init-ref ref="_OilWell_PLC" target="PLC1.Runtime.Application.LN.LN.LN01.LSP.FOND.SKV3" />
+                    </ct:object>
+                    <ct:object name="SKV5" uuid="612e45d5-8139-4830-b572-53b9514a230b" original="PLC1.Runtime.Application.LN.LN.LN01.LSP.FOND.SKV5" base-type="Templates.Wells.OilWell_IOS" aspect="Aspects.IOS">
+                      <r:init-ref ref="_OilWell_PLC" target="PLC1.Runtime.Application.LN.LN.LN01.LSP.FOND.SKV5" />
+                    </ct:object>
+                  </ct:object>
+                  <ct:object name="MFR" uuid="8d0c7902-9fcc-425f-9452-186fc53a1d8b" original="PLC1.Runtime.Application.LN.LN.LN01.LSP.MFR" aspect="Aspects.IOS">
+                    <ct:object name="MFR1" uuid="caa7f873-4539-4fce-81a4-c422dd1dbb6e" original="PLC1.Runtime.Application.LN.LN.LN01.LSP.MFR.MFR1" aspect="Aspects.IOS" />
+                  </ct:object>
+                  <ct:object name="SPN" uuid="bdbce838-243b-4c98-9d19-2383ab4e6409" original="PLC1.Runtime.Application.LN.LN.LN01.LSP.SPN" aspect="Aspects.IOS" />
+                  <ct:object name="SSN" uuid="09f3b415-f026-40f7-98a8-8cd8d41fb7f3" original="PLC1.Runtime.Application.LN.LN.LN01.LSP.SSN" aspect="Aspects.IOS" />
+                </ct:object>
+                <ct:object name="BK" uuid="396abd19-443f-459e-aa80-de71412b6585" original="PLC1.Runtime.Application.LN.LN.LN01.BK" aspect="Aspects.IOS">
+                  <ct:object name="FOND" uuid="52bc7091-e572-43d5-9f99-480a3de594ac" original="PLC1.Runtime.Application.LN.LN.LN01.BK.FOND" aspect="Aspects.IOS">
+                    <ct:object name="SKV311" uuid="32de42c5-f8c6-450a-9ece-8b65eb111f8e" original="PLC1.Runtime.Application.LN.LN.LN01.BK.FOND.SKV311" base-type="Templates.Wells.OilWell_IOS" aspect="Aspects.IOS">
+                      <r:init-ref ref="_OilWell_PLC" target="PLC1.Runtime.Application.LN.LN.LN01.BK.FOND.SKV311" />
+                    </ct:object>
+                    <ct:object name="SKV312" uuid="a74c485b-7dea-4f59-a08a-c88d2f1a64a9" original="PLC1.Runtime.Application.LN.LN.LN01.BK.FOND.SKV312" base-type="Templates.Wells.OilWell_IOS" aspect="Aspects.IOS">
+                      <r:init-ref ref="_OilWell_PLC" target="PLC1.Runtime.Application.LN.LN.LN01.BK.FOND.SKV312" />
+                    </ct:object>
+                  </ct:object>
+                </ct:object>
+                <ct:object name="MPK" uuid="692df010-fe40-4982-bac7-7f039e3948b7" original="PLC1.Runtime.Application.LN.LN.LN01.MPK" aspect="Aspects.IOS" />
+              </ct:object>
+              <ct:object name="LN02" uuid="335ebcbd-a418-454f-8bea-5782b46f1a37" original="PLC1.Runtime.Application.LN.LN.LN02" aspect="Aspects.IOS">
+                <ct:object name="BK" uuid="242dbc52-f74c-4aab-94ae-fd3bf9d9b8a9" original="PLC1.Runtime.Application.LN.LN.LN02.BK" aspect="Aspects.IOS">
+                  <ct:object name="FOND" uuid="69cb5645-e00e-4dda-be6d-bd8ef9d3f5df" original="PLC1.Runtime.Application.LN.LN.LN02.BK.FOND" aspect="Aspects.IOS" />
+                </ct:object>
+                <ct:object name="LSP1" uuid="49403847-b571-43c2-907a-406ab2b0d81f" original="PLC1.Runtime.Application.LN.LN.LN02.LSP1" aspect="Aspects.IOS">
+                  <ct:object name="FOND" uuid="835b94d5-ef76-4e92-8188-b9c23ebda140" original="PLC1.Runtime.Application.LN.LN.LN02.LSP1.FOND" aspect="Aspects.IOS">
+                    <ct:object name="SKV15A" uuid="881d3588-8d70-4673-99d4-f24048325c04" original="PLC1.Runtime.Application.LN.LN.LN02.LSP1.FOND.SKV15A" base-type="Templates.Wells.OilWell_IOS" aspect="Aspects.IOS">
+                      <r:init-ref ref="_OilWell_PLC" target="PLC1.Runtime.Application.LN.LN.LN02.LSP1.FOND.SKV15A" />
+                    </ct:object>
+                    <ct:object name="SKV23" uuid="9c900c93-7b8a-4cb8-bf45-b7a143bfe05a" original="PLC1.Runtime.Application.LN.LN.LN02.LSP1.FOND.SKV23" base-type="Templates.Wells.OilWell_IOS" aspect="Aspects.IOS">
+                      <r:init-ref ref="_OilWell_PLC" target="PLC1.Runtime.Application.LN.LN.LN02.LSP1.FOND.SKV23" />
+                    </ct:object>
+                  </ct:object>
+                  <ct:object name="MFR" uuid="388cc4bb-52f1-464f-ae25-90a241eef0d5" original="PLC1.Runtime.Application.LN.LN.LN02.LSP1.MFR" aspect="Aspects.IOS">
+                    <ct:object name="MFR1" uuid="431634cc-1b71-48d2-bb74-2d2544995c46" original="PLC1.Runtime.Application.LN.LN.LN02.LSP1.MFR.MFR1" aspect="Aspects.IOS" />
+                    <ct:object name="MFR2" uuid="18dd5565-d4af-4907-937e-6f05fb01d71f" original="PLC1.Runtime.Application.LN.LN.LN02.LSP1.MFR.MFR2" aspect="Aspects.IOS" />
+                    <ct:object name="MFR3" uuid="e7be9a31-4b22-46a1-aca9-86a5d855dfa2" original="PLC1.Runtime.Application.LN.LN.LN02.LSP1.MFR.MFR3" aspect="Aspects.IOS" />
+                  </ct:object>
+                </ct:object>
+                <ct:object name="LSP2" uuid="ebe581cf-e29b-4705-bfd9-47a9ce809335" original="PLC1.Runtime.Application.LN.LN.LN02.LSP2" aspect="Aspects.IOS">
+                  <ct:object name="FOND" uuid="5e129da3-83a8-402a-bb79-2707f56e2668" original="PLC1.Runtime.Application.LN.LN.LN02.LSP2.FOND" aspect="Aspects.IOS" />
+                  <ct:object name="MFR" uuid="1606d904-37c4-43fe-b2f0-c9cdb55af02a" original="PLC1.Runtime.Application.LN.LN.LN02.LSP2.MFR" aspect="Aspects.IOS">
+                    <ct:object name="MFR1" uuid="20d39d18-68a7-4e58-a082-b42ab801f3d5" original="PLC1.Runtime.Application.LN.LN.LN02.LSP2.MFR.MFR1" aspect="Aspects.IOS" />
+                    <ct:object name="MFR2" uuid="f499ff1a-6e0c-4fe2-b937-61c4e327069f" original="PLC1.Runtime.Application.LN.LN.LN02.LSP2.MFR.MFR2" aspect="Aspects.IOS" />
+                  </ct:object>
+                </ct:object>
+                <ct:object name="CTP" uuid="b11111a8-da83-4c19-9b48-eedf5ba78b6e" original="PLC1.Runtime.Application.LN.LN.LN02.CTP" aspect="Aspects.IOS" />
+                <ct:object name="RB" uuid="a1b232dd-1a7d-4a38-9c43-f0f106757a79" original="PLC1.Runtime.Application.LN.LN.LN02.RB" aspect="Aspects.IOS" />
+                <ct:object name="PGM1" uuid="ee8ffdc5-646f-4e88-9e62-f296d3510867" original="PLC1.Runtime.Application.LN.LN.LN02.PGM1" aspect="Aspects.IOS" />
+                <ct:object name="PGM2" uuid="b8925c52-050d-4e20-9ec4-8823671721dc" original="PLC1.Runtime.Application.LN.LN.LN02.PGM2" aspect="Aspects.IOS" />
+              </ct:object>
+              <ct:object name="LN03" uuid="50b8d887-3e1e-497c-91cc-e0517bc13316" original="PLC1.Runtime.Application.LN.LN.LN03" aspect="Aspects.IOS">
+                <ct:object name="LSP" uuid="97967be9-0585-409a-979f-df17fee2d43b" original="PLC1.Runtime.Application.LN.LN.LN03.LSP" aspect="Aspects.IOS">
+                  <ct:object name="FOND" uuid="89550c92-95ae-49ab-a008-170f793d1d74" original="PLC1.Runtime.Application.LN.LN.LN03.LSP.FOND" aspect="Aspects.IOS" />
+                  <ct:object name="MFR" uuid="9f23faa4-52ee-4b26-b279-a41f3beb2607" original="PLC1.Runtime.Application.LN.LN.LN03.LSP.MFR" aspect="Aspects.IOS">
+                    <ct:object name="MFR1" uuid="75676294-02e6-4703-aab1-4c596b2bc2d8" original="PLC1.Runtime.Application.LN.LN.LN03.LSP.MFR.MFR1" aspect="Aspects.IOS" />
+                  </ct:object>
+                </ct:object>
+                <ct:object name="PGM" uuid="8d61333f-45f0-4e89-8424-f2597840f510" original="PLC1.Runtime.Application.LN.LN.LN03.PGM" aspect="Aspects.IOS" />
+              </ct:object>
+              <ct:object name="LN20" uuid="47bac227-6dec-4431-b09a-24f1534c351f" original="PLC1.Runtime.Application.LN.LN.LN20" aspect="Aspects.IOS">
+                <ct:object name="GBS" uuid="e6ba4cfe-3e61-4a7d-b9ac-5e43324ecb72" original="PLC1.Runtime.Application.LN.LN.LN20.GBS" aspect="Aspects.IOS" />
+                <ct:object name="NP" uuid="2d204924-fe00-48c6-91af-0dbb24b7948d" original="PLC1.Runtime.Application.LN.LN.LN20.NP" aspect="Aspects.IOS" />
+                <ct:object name="GP" uuid="cbce96ff-aa1b-4e4a-b308-49f2d8ebe158" original="PLC1.Runtime.Application.LN.LN.LN20.GP" aspect="Aspects.IOS" />
+              </ct:object>
+            </ct:object>
+            <ct:parameter name="EventCall" type="bool" direction="out" uuid="01f50829-98ea-492d-81f5-783860dbe468" />
+            <ct:handler name="InitWellValues" uuid="215d4476-0e33-4343-9fec-1de3bbfa5f70">
+              <ct:trigger on="EventCall" cause="change" />
+              <property name="source-code">if (EventCall.Value == true)
+{	
+	LN.LN.LN01.LSP.FOND.SKV3.DEBF_FACT_OIS = VQ(61.2, 192);
+	LN.LN.LN01.LSP.FOND.SKV3.DEBF_FACT_TM = VQ(60.9, 192);
+	LN.LN.LN01.LSP.FOND.SKV3.DEBF_REGIM = VQ(61.6, 192);
+	LN.LN.LN01.LSP.FOND.SKV3.METHOD = VQ("ФОН", 192);
+	LN.LN.LN01.LSP.FOND.SKV3.PLAST = VQ("Пласт", 192);
+	LN.LN.LN01.LSP.FOND.SKV3.PLIN = VQ(1.2, 192);
+	LN.LN.LN01.LSP.FOND.SKV3.PZAB = VQ(7.65, 192);
+	LN.LN.LN01.LSP.FOND.SKV3.PROST = VQ("вывод", 192);
+	LN.LN.LN01.LSP.FOND.SKV3.SOST_OIS = VQ(true, 192);
+	LN.LN.LN01.LSP.FOND.SKV3.SOST_TM = VQ(true, 192);
+	LN.LN.LN01.LSP.FOND.SKV3.STATE = VQ("В работе", 192);
+
+	LN.LN.LN01.LSP.FOND.SKV5.DEBF_FACT_OIS = VQ(61.2, 192);
+	LN.LN.LN01.LSP.FOND.SKV5.DEBF_FACT_TM = VQ(60.9, 192);
+	LN.LN.LN01.LSP.FOND.SKV5.DEBF_REGIM = VQ(61.6, 192);
+	LN.LN.LN01.LSP.FOND.SKV5.METHOD = VQ("ЭЦН", 192);
+	LN.LN.LN01.LSP.FOND.SKV5.PLAST = VQ("Пласт", 192);
+	LN.LN.LN01.LSP.FOND.SKV5.PLIN = VQ(1.2, 192);
+	LN.LN.LN01.LSP.FOND.SKV5.PZAB = VQ(7.65, 192);
+	LN.LN.LN01.LSP.FOND.SKV5.PROST = VQ("вывод", 192);
+	LN.LN.LN01.LSP.FOND.SKV5.SOST_OIS = VQ(true, 192);
+	LN.LN.LN01.LSP.FOND.SKV5.SOST_TM = VQ(true, 192);
+	LN.LN.LN01.LSP.FOND.SKV5.STATE = VQ("В работе", 192);
+
+	LN.LN.LN01.BK.FOND.SKV311.DEBF_FACT_OIS = VQ(61.2, 192);
+	LN.LN.LN01.BK.FOND.SKV311.DEBF_FACT_TM = VQ(60.9, 192);
+	LN.LN.LN01.BK.FOND.SKV311.DEBF_REGIM = VQ(61.6, 192);
+	LN.LN.LN01.BK.FOND.SKV311.METHOD = VQ("ЭЦН", 192);
+	LN.LN.LN01.BK.FOND.SKV311.PLAST = VQ("Пласт", 192);
+	LN.LN.LN01.BK.FOND.SKV311.PLIN = VQ(1.2, 192);
+	LN.LN.LN01.BK.FOND.SKV311.PZAB = VQ(7.65, 192);
+	LN.LN.LN01.BK.FOND.SKV311.PROST = VQ("вывод", 192);
+	LN.LN.LN01.BK.FOND.SKV311.SOST_OIS = VQ(true, 192);
+	LN.LN.LN01.BK.FOND.SKV311.SOST_TM = VQ(true, 192);
+	LN.LN.LN01.BK.FOND.SKV311.STATE = VQ("В работе", 192);
+
+	LN.LN.LN01.BK.FOND.SKV312.DEBF_FACT_OIS = VQ(61.2, 192);
+	LN.LN.LN01.BK.FOND.SKV312.DEBF_FACT_TM = VQ(60.9, 192);
+	LN.LN.LN01.BK.FOND.SKV312.DEBF_REGIM = VQ(61.6, 192);
+	LN.LN.LN01.BK.FOND.SKV312.METHOD = VQ("ЭЦН", 192);
+	LN.LN.LN01.BK.FOND.SKV312.PLAST = VQ("Пласт", 192);
+	LN.LN.LN01.BK.FOND.SKV312.PLIN = VQ(1.2, 192);
+	LN.LN.LN01.BK.FOND.SKV312.PZAB = VQ(7.65, 192);
+	LN.LN.LN01.BK.FOND.SKV312.PROST = VQ("вывод", 192);
+	LN.LN.LN01.BK.FOND.SKV312.SOST_OIS = VQ(true, 192);
+	LN.LN.LN01.BK.FOND.SKV312.SOST_TM = VQ(true, 192);
+	LN.LN.LN01.BK.FOND.SKV312.STATE = VQ("В работе", 192);	
+	
+	LN.LN.LN02.LSP1.FOND.SKV15A.DEBF_FACT_OIS = VQ(61.2, 192);
+	LN.LN.LN02.LSP1.FOND.SKV15A.DEBF_FACT_TM = VQ(60.9, 192);
+	LN.LN.LN02.LSP1.FOND.SKV15A.DEBF_REGIM = VQ(61.6, 192);
+	LN.LN.LN02.LSP1.FOND.SKV15A.METHOD = VQ("ЭЦН", 192);
+	LN.LN.LN02.LSP1.FOND.SKV15A.PLAST = VQ("Пласт", 192);
+	LN.LN.LN02.LSP1.FOND.SKV15A.PLIN = VQ(1.2, 192);
+	LN.LN.LN02.LSP1.FOND.SKV15A.PZAB = VQ(7.65, 192);
+	LN.LN.LN02.LSP1.FOND.SKV15A.PROST = VQ("вывод", 192);
+	LN.LN.LN02.LSP1.FOND.SKV15A.SOST_OIS = VQ(true, 192);
+	LN.LN.LN02.LSP1.FOND.SKV15A.SOST_TM = VQ(true, 192);
+	LN.LN.LN02.LSP1.FOND.SKV15A.STATE = VQ("В работе", 192);	
+	
+	LN.LN.LN02.LSP1.FOND.SKV23.DEBF_FACT_OIS = VQ(61.2, 192);
+	LN.LN.LN02.LSP1.FOND.SKV23.DEBF_FACT_TM = VQ(60.9, 192);
+	LN.LN.LN02.LSP1.FOND.SKV23.DEBF_REGIM = VQ(61.6, 192);
+	LN.LN.LN02.LSP1.FOND.SKV23.METHOD = VQ("ЭЦН", 192);
+	LN.LN.LN02.LSP1.FOND.SKV23.PLAST = VQ("Пласт", 192);
+	LN.LN.LN02.LSP1.FOND.SKV23.PLIN = VQ(1.2, 192);
+	LN.LN.LN02.LSP1.FOND.SKV23.PZAB = VQ(7.65, 192);
+	LN.LN.LN02.LSP1.FOND.SKV23.PROST = VQ("вывод", 192);
+	LN.LN.LN02.LSP1.FOND.SKV23.SOST_OIS = VQ(true, 192);
+	LN.LN.LN02.LSP1.FOND.SKV23.SOST_TM = VQ(true, 192);
+	LN.LN.LN02.LSP1.FOND.SKV23.STATE = VQ("В работе", 192);	
+}</property>
+            </ct:handler>
+          </ct:object>
+        </dp:application-object>
+        <attribute type="unit.System.Attributes.Description" value="123" />
+        <srv:writevqt-module name="WriteVqtModule" uuid="c5a38db8-49c9-4746-a0bc-049235b519ff" />
+        <srv:opcda-client name="OpcDaClient" uuid="603b2dbd-36d3-4466-8f67-778be6137af5">
+          <srv:opcda-client-server-link server="PLC1.Runtime.OpcDaServer" />
+        </srv:opcda-client>
+        <srv:logics-module name="LogicsModule" uuid="7ba4291a-3ab9-4b57-8a27-11cccda57a44" logging-required="true" />
+        <srv:history-module name="HistoryModule_Events" uuid="4c08fe31-ab57-44d0-abf4-349aee09b7e5" logging-required="true" system-log-detail-level="debug-info-warning-error">
+          <srv:postgre-database-link database="PostgreSQL.ASODU_HIST" dsn="ASODU_Backend_Win" queue="file" user="asodu">
+            <property name="password">TueChdSmogkZIec+4LsPk1R3hklkK3ypjWUgcx0z2kn69mQ+FjvcTpCBOMuqiC4f4j5oLyGdlf5p4BdgKfQabPHmaUD5Cz58509TIsRJS67Zbtfn/VJw5aHF2ePeSAYYkLEKJ1YbOWQWYpKkMGPCqmEohTrpDriG2aOKoUYGDFc</property>
+          </srv:postgre-database-link>
+        </srv:history-module>
+        <srv:history-module name="HistoryModule_LOCAL" uuid="321194c1-ba18-4a12-8d76-cd92942396a9">
+          <srv:postgre-database-link database="PostgreSQL_LOCAL.ASODU_HIST_LOCAL" dsn="LOCAL" user="postgres" queue="file">
+            <property name="password">eZSgcoIMAYGBMj8rX3FXIhQRLd6qvuzAcdvpMs9XAN3qhGrZspTgE8jaKKeDDehQ+2v0+HgekVsVCeNi8lqn2Ym8cqyUQUHVEnLxZBKgDtjBM2bbNxIuglK4RfmZmxb288vb5N1WV0pQY+cxa8TR42Wr1+TLnQ2ND85JMPVRSvA</property>
+          </srv:postgre-database-link>
+        </srv:history-module>
+      </srv:io-server>
+      <srv:historian name="Historian" uuid="27a98cd0-92e4-4072-8bd7-44f86b67a6f5">
+        <srv:historian-database name="Database" uuid="d92a2207-cc3a-41ce-8ca7-37c744974720" />
+      </srv:historian>
+      <srv:postgre name="PostgreSQL" uuid="4eb8fb34-76a0-4926-a213-868d4fc70674">
+        <srv:postgre-database name="ASODU_HIST" usage="values-events" uuid="54418d18-2088-4fa9-be65-1ef78722d721" />
+      </srv:postgre>
+      <srv:postgre name="PostgreSQL_LOCAL" uuid="117c251b-3ae5-4bc3-8ff1-5ad3aff1251f">
+        <srv:postgre-database name="ASODU_HIST_LOCAL" uuid="b2d849bb-f223-4dae-be2c-2177cb490d5a" />
+      </srv:postgre>
+    </dp:domain-node>
+    <eth:ethernet-net name="Ethernet" uuid="3cb800a8-1e69-4d93-a17a-15357101b8fc" />
+    <dp:computer name="PLC1" uuid="5e2ada7e-1a7f-419d-a980-ff96c7e3f72e">
+      <eth:ethernet-adapter name="EthernetAdapter" address="10.90.11.2" network="Ethernet" uuid="cadbc112-d74b-4396-8c37-393268568aee" />
+      <dp:external-runtime name="Runtime" uuid="ac6567a2-b77a-419c-a25e-007771d16af5">
+        <dp:application-object name="Application" uuid="3b8268fc-c9a1-48c3-bea7-a9219b8e7420">
+          <ct:object name="LN" access-level="public" access-scope="global" uuid="cef095a4-6b6d-4828-8c33-504acff24626">
+            <attribute type="unit.System.Attributes.Description" value="ООО «ЛУКОЙЛ-Нижневолжскнефть»" />
+            <ct:object name="LN" access-level="public" access-scope="global" uuid="5edbbbe5-5abd-40e6-9498-94654ec16f90">
+              <attribute type="unit.System.Attributes.Description" value="ЦИТС ЛНВН" />
+              <attribute type="unit.System.Attributes.Title" value="ЦИТС ООО «ЛУКОЙЛ-Нижневолжскнефть»" />
+              <ct:object name="LN01" access-level="public" access-scope="global" uuid="ff0c1ed0-24bd-499c-87d4-0d8010d7bdd2">
+                <attribute type="unit.System.Attributes.Description" value="КЦДПТНиГ №1" />
+                <attribute type="unit.System.Attributes.Title" value="КЦДПТНиГ №1 (Месторождение им. Ю. Корчагина)" />
+                <ct:object name="LSP" access-level="public" access-scope="global" uuid="284efe0a-e833-4246-b261-6f489fd0f2fa">
+                  <attribute type="unit.System.Attributes.Description" value="ЛСП-К" />
+                  <attribute type="unit.System.Attributes.Title" value="ЛСП-К" />
+                  <ct:object name="FOND" access-level="public" access-scope="global" uuid="41e6a236-a5f5-4041-8a49-fdba0b15b037">
+                    <attribute type="unit.System.Attributes.Description" value="Фонд скважин" />
+                    <attribute type="unit.System.Attributes.Title" value="Фонд скважин" />
+                    <ct:object name="SKV3" uuid="959e2784-e420-46d4-875f-306fd9bef601" base-type="Templates.Wells.OilWell_PLC" aspect="Aspects.PLC">
+                      <attribute type="unit.System.Attributes.Description" value="Скв. 3 Корчагина" />
+                      <attribute type="unit.System.Attributes.Title" value="Нефтяная скважина №3 м/р им. Ю. Корчагина" />
+                    </ct:object>
+                    <ct:object name="SKV5" base-type="Templates.Wells.OilWell_PLC" aspect="Aspects.PLC" uuid="709a7b1d-8468-48ba-9eba-c8f97a65f8df">
+                      <attribute type="unit.System.Attributes.Description" value="Скв. 5 Корчагина" />
+                      <attribute type="unit.System.Attributes.Title" value="Нефтяная скважина №5 м/р им. Ю. Корчагина" />
+                    </ct:object>
+                  </ct:object>
+                  <ct:object name="MFR" access-level="public" access-scope="global" uuid="56ac174c-3db4-47a8-a4a9-337d474f1068">
+                    <attribute type="unit.System.Attributes.Description" value="МФР" />
+                    <attribute type="unit.System.Attributes.Title" value="МФР" />
+                    <ct:object name="MFR1" access-level="public" access-scope="global" uuid="a2dd550d-f0da-4fcd-89d7-e41a4d8d3105">
+                      <attribute type="unit.System.Attributes.Description" value="МФР A-2001" />
+                      <attribute type="unit.System.Attributes.Title" value="МФР A-2001" />
+                    </ct:object>
+                  </ct:object>
+                  <ct:object name="SPN" access-level="public" access-scope="global" uuid="a441feba-feee-4fdb-9ddf-b0e61977aacc">
+                    <attribute type="unit.System.Attributes.Description" value="Система подготовки нефти" />
+                    <attribute type="unit.System.Attributes.Title" value="Система подготовки нефти" />
+                  </ct:object>
+                  <ct:object name="SSN" access-level="public" access-scope="global" uuid="dfb319f7-8525-4c93-af43-2ece2cfd48fd">
+                    <attribute type="unit.System.Attributes.Description" value="Система стабилизации нефти" />
+                    <attribute type="unit.System.Attributes.Title" value="Система стабилизации нефти" />
+                  </ct:object>
+                </ct:object>
+                <ct:object name="BK" access-level="public" access-scope="global" uuid="40d5d1de-131d-4acc-bc9e-8c0e0a00f751">
+                  <attribute type="unit.System.Attributes.Description" value="БК-К" />
+                  <attribute type="unit.System.Attributes.Title" value="Блок-кондуктор м/р им. Ю. Корчагина" />
+                  <ct:object name="FOND" access-level="public" access-scope="global" uuid="743aac35-6eb8-4772-ad36-ef488619c4b8">
+                    <attribute type="unit.System.Attributes.Description" value="Фонд скважин" />
+                    <attribute type="unit.System.Attributes.Title" value="Фонд скважин" />
+                    <ct:object name="SKV311" base-type="Templates.Wells.OilWell_PLC" aspect="Aspects.PLC" uuid="72024dbc-4bff-4125-976a-3db7d4bb533d">
+                      <attribute type="unit.System.Attributes.Description" value="Скв. 311 Корчагина" />
+                      <attribute type="unit.System.Attributes.Title" value="Нефтяная скважина №311 м/р им. Ю. Корчагина" />
+                    </ct:object>
+                    <ct:object name="SKV312" base-type="Templates.Wells.OilWell_PLC" aspect="Aspects.PLC" uuid="66c52f0e-421a-4791-8f0f-184bb041914c">
+                      <attribute type="unit.System.Attributes.Description" value="Скв. 312 Корчагина" />
+                      <attribute type="unit.System.Attributes.Title" value="Нефтяная скважина №312 м/р им. Ю. Корчагина" />
+                    </ct:object>
+                  </ct:object>
+                </ct:object>
+                <ct:object name="MPK" access-level="public" access-scope="global" uuid="d12b8911-7419-45a0-9d5f-c0c1b61528cc">
+                  <attribute type="unit.System.Attributes.Description" value="МПК" />
+                  <attribute type="unit.System.Attributes.Title" value="МПК" />
+                </ct:object>
+              </ct:object>
+              <ct:object name="LN02" access-level="public" access-scope="global" uuid="2dae22e5-ecc7-40d6-9c27-6f3c749b1c4b">
+                <attribute type="unit.System.Attributes.Description" value="КЦДПТНиГ №2" />
+                <attribute type="unit.System.Attributes.Title" value="КЦДПТНиГ №2 (Месторождение им. В. Филановского)" />
+                <ct:object name="LSP1" access-level="public" access-scope="global" uuid="42b6552a-b02b-4fe0-a149-c755894e3d05">
+                  <attribute type="unit.System.Attributes.Description" value="ЛСП-Ф1" />
+                  <attribute type="unit.System.Attributes.Title" value="ЛСП-Ф1" />
+                  <ct:object name="FOND" access-level="public" access-scope="global" uuid="fcc788a1-d854-4c5e-9e12-77045e5ed45d">
+                    <attribute type="unit.System.Attributes.Description" value="Фонд скважин" />
+                    <attribute type="unit.System.Attributes.Title" value="Фонд скважин" />
+                    <ct:object name="SKV15A" base-type="Templates.Wells.OilWell_PLC" aspect="Aspects.PLC" uuid="0209f9b8-213f-49a5-a30f-6fdbfc85eab5">
+                      <attribute type="unit.System.Attributes.Description" value="Скв. 15А Филановского" />
+                      <attribute type="unit.System.Attributes.Title" value="Нефтяная скважина №15А м/р им. В. Филановского" />
+                    </ct:object>
+                    <ct:object name="SKV23" base-type="Templates.Wells.OilWell_PLC" aspect="Aspects.PLC" uuid="9c40c26f-df56-4cc3-a1b3-0445da40b0fd">
+                      <attribute type="unit.System.Attributes.Description" value="Скв. 23 Корчагина" />
+                      <attribute type="unit.System.Attributes.Title" value="Нефтяная скважина №23 м/р им. В. Филановского" />
+                    </ct:object>
+                  </ct:object>
+                  <ct:object name="MFR" access-level="public" access-scope="global" uuid="7bd259f7-d0d6-44c9-a571-070455349003">
+                    <attribute type="unit.System.Attributes.Description" value="МФР" />
+                    <attribute type="unit.System.Attributes.Title" value="МФР" />
+                    <ct:object name="MFR1" access-level="public" access-scope="global" uuid="84d8b55b-53cf-47d6-8736-73885c6084e2">
+                      <attribute type="unit.System.Attributes.Description" value="МФР A-2401-1" />
+                      <attribute type="unit.System.Attributes.Title" value="МФР A-2401-1" />
+                    </ct:object>
+                    <ct:object name="MFR2" access-level="public" access-scope="global" uuid="077e568a-165a-485c-ba3d-2156dcb45627">
+                      <attribute type="unit.System.Attributes.Description" value="МФР A-2401-2" />
+                      <attribute type="unit.System.Attributes.Title" value="МФР A-2401-2" />
+                    </ct:object>
+                    <ct:object name="MFR3" access-level="public" access-scope="global" uuid="c697ba80-0f5f-453c-871d-d6c7c6902c85">
+                      <attribute type="unit.System.Attributes.Description" value="МФР 11-A-2403" />
+                      <attribute type="unit.System.Attributes.Title" value="МФР 11-A-2403" />
+                    </ct:object>
+                  </ct:object>
+                </ct:object>
+                <ct:object name="BK" access-level="public" access-scope="global" uuid="1d5a44fe-7ab9-499e-9e41-4017cb996a70">
+                  <attribute type="unit.System.Attributes.Description" value="БК-Ф" />
+                  <attribute type="unit.System.Attributes.Title" value="Блок-кондуктор м/р им. В. Филановского" />
+                  <ct:object name="FOND" access-level="public" access-scope="global" uuid="d35e0408-d939-4685-9ddf-61fb5d71dc88">
+                    <attribute type="unit.System.Attributes.Description" value="Фонд скважин" />
+                    <attribute type="unit.System.Attributes.Title" value="Фонд скважин" />
+                  </ct:object>
+                </ct:object>
+                <ct:object name="LSP2" access-level="public" access-scope="global" uuid="ba7ce991-640e-44db-8aa9-35682c18db80">
+                  <attribute type="unit.System.Attributes.Description" value="ЛСП-Ф2" />
+                  <attribute type="unit.System.Attributes.Title" value="ЛСП-Ф2" />
+                  <ct:object name="FOND" access-level="public" access-scope="global" uuid="d5e0d6b8-138a-4bf9-83ca-e2ad4cc372ce">
+                    <attribute type="unit.System.Attributes.Description" value="Фонд скважин" />
+                    <attribute type="unit.System.Attributes.Title" value="Фонд скважин" />
+                  </ct:object>
+                  <ct:object name="MFR" access-level="public" access-scope="global" uuid="d987fa2c-6784-456e-9b70-2c64610bc01e">
+                    <attribute type="unit.System.Attributes.Description" value="МФР" />
+                    <attribute type="unit.System.Attributes.Title" value="МФР" />
+                    <ct:object name="MFR1" access-level="public" access-scope="global" uuid="f6241a52-353e-4590-a69f-61a0c040b5c4">
+                      <attribute type="unit.System.Attributes.Description" value="МФР А-2402" />
+                      <attribute type="unit.System.Attributes.Title" value="МФР А-2402" />
+                    </ct:object>
+                    <ct:object name="MFR2" access-level="public" access-scope="global" uuid="0425b9df-e3cc-4dbd-9249-848a56fba239">
+                      <attribute type="unit.System.Attributes.Description" value="МФР А-2403" />
+                      <attribute type="unit.System.Attributes.Title" value="МФР А-2403" />
+                    </ct:object>
+                  </ct:object>
+                </ct:object>
+                <ct:object name="CTP" access-level="public" access-scope="global" uuid="228a8a74-b559-4d7f-91eb-35ac5dd5e511">
+                  <attribute type="unit.System.Attributes.Description" value="ЦТП" />
+                  <attribute type="unit.System.Attributes.Title" value="ЦТП-Ф" />
+                </ct:object>
+                <ct:object name="RB" access-level="public" access-scope="global" uuid="b24be02a-be32-4047-9450-e5eea1a7cbc9">
+                  <attribute type="unit.System.Attributes.Description" value="РБ" />
+                  <attribute type="unit.System.Attributes.Title" value="РБ" />
+                </ct:object>
+                <ct:object name="PGM1" access-level="public" access-scope="global" uuid="2ba6024a-97ef-494c-bc43-48964f3813d3">
+                  <attribute type="unit.System.Attributes.Description" value="ПЖМ-1" />
+                  <attribute type="unit.System.Attributes.Title" value="ПЖМ-1" />
+                </ct:object>
+                <ct:object name="PGM2" access-level="public" access-scope="global" uuid="ede854ef-651f-4e92-bacc-51c5a262b3f5">
+                  <attribute type="unit.System.Attributes.Description" value="ПЖМ-2" />
+                  <attribute type="unit.System.Attributes.Title" value="ПЖМ-2" />
+                </ct:object>
+              </ct:object>
+              <ct:object name="LN03" access-level="public" access-scope="global" uuid="2183c096-c69d-4a1d-a4d6-8f1badc4b927">
+                <attribute type="unit.System.Attributes.Description" value="КЦДТНиГ №3" />
+                <attribute type="unit.System.Attributes.Title" value="КЦДТНиГ №3 (Месторождение им. В. Грайфера)" />
+                <ct:object name="LSP" access-level="public" access-scope="global" uuid="727c3bfd-1f03-45c3-8679-8a7c8d6c7274">
+                  <attribute type="unit.System.Attributes.Description" value="ЛСП" />
+                  <attribute type="unit.System.Attributes.Title" value="ЛСП-Г" />
+                  <ct:object name="FOND" access-level="public" access-scope="global" uuid="4fcf4b68-879d-4e91-8a31-7d18c41c08b0">
+                    <attribute type="unit.System.Attributes.Description" value="Фонд скважин" />
+                    <attribute type="unit.System.Attributes.Title" value="Фонд скважин" />
+                  </ct:object>
+                  <ct:object name="MFR" access-level="public" access-scope="global" uuid="6dc725c6-f2a0-47b4-9f04-3b9776e6d26a">
+                    <attribute type="unit.System.Attributes.Description" value="МФР" />
+                    <attribute type="unit.System.Attributes.Title" value="МФР" />
+                    <ct:object name="MFR1" access-level="public" access-scope="global" uuid="ebb98c66-2e59-46f1-aa8d-b0c300b87913">
+                      <attribute type="unit.System.Attributes.Description" value="МФР 10-Z-0159-001" />
+                      <attribute type="unit.System.Attributes.Title" value="МФР 10-Z-0159-001" />
+                    </ct:object>
+                  </ct:object>
+                </ct:object>
+                <ct:object name="PGM" access-level="public" access-scope="global" uuid="ae4c4490-d4ea-47dc-a410-9719d890d3aa">
+                  <attribute type="unit.System.Attributes.Description" value="ПЖМ" />
+                  <attribute type="unit.System.Attributes.Title" value="ПЖМ" />
+                </ct:object>
+              </ct:object>
+              <ct:object name="LN20" access-level="public" access-scope="global" uuid="f552d870-e939-4cae-a627-38599776f322">
+                <attribute type="unit.System.Attributes.Description" value="ООО &quot;ЛНВН-Калмыкия&quot;" />
+                <attribute type="unit.System.Attributes.Title" value="ООО &quot;ЛУКОЙЛ-Нижневолжскнефть-Калмыкия&quot;" />
+                <ct:object name="GBS" access-level="public" access-scope="global" uuid="a2914c73-aa99-4602-8e8b-cd4ee905e853">
+                  <attribute type="unit.System.Attributes.Description" value="ГБС" />
+                  <attribute type="unit.System.Attributes.Title" value="ГБС" />
+                </ct:object>
+                <ct:object name="NP" access-level="public" access-scope="global" uuid="29aaf2d7-d05f-4a53-a8b1-bb79ecda011d">
+                  <attribute type="unit.System.Attributes.Description" value="Нефтепровод" />
+                  <attribute type="unit.System.Attributes.Title" value="Нефтепровод" />
+                </ct:object>
+                <ct:object name="GP" access-level="public" access-scope="global" uuid="8e1aad9e-41e6-449c-9afb-79bd1a43b9be">
+                  <attribute type="unit.System.Attributes.Description" value="Газопровод" />
+                  <attribute type="unit.System.Attributes.Title" value="Газопровод" />
+                </ct:object>
+              </ct:object>
+            </ct:object>
+            <attribute type="unit.System.Attributes.Title" value="ООО «ЛУКОЙЛ-Нижневолжскнефть»" />
+          </ct:object>
+        </dp:application-object>
+        <opc:opcda-server name="OpcDaServer" class-id="Matrikon" tag-map="MainNode.AlphaServer.MainApplication.OpcDaAddressMap" uuid="6c793af8-a663-4588-8bcd-3d6ffa2e96a5" />
+      </dp:external-runtime>
+    </dp:computer>
+  </dp:domain>
+  <namespace name="Aspects" uuid="4927fc26-09d8-42f3-968b-6b9ecdf0fcf9">
+    <a:aspect name="PLC" uuid="ae549e0e-1c54-4684-bdbe-1d2136500345" />
+    <a:aspect name="IOS" uuid="366cd5d1-ece6-43f4-878a-9fc8af38cfb0" />
+    <a:aspect name="IOS_COD" uuid="eb7f8273-b30d-458d-a932-3058c3abaea5" />
+  </namespace>
+  <namespace name="Templates" uuid="046ffd2d-d4b3-47c3-a1c5-1d8c3a86f8d1">
+    <namespace name="Wells" uuid="a2bc8bc9-d2b8-4650-9dfe-00ca0d72dfdb">
+      <attribute type="unit.System.Attributes.Description" value="Шаблоны скважин" />
+      <ct:type name="OilWell_PLC" uuid="d5e084b8-508b-468c-93b7-422a34c6704f" aspect="Aspects.PLC">
+        <attribute type="unit.System.Attributes.Description" />
+        <ct:parameter name="SOST_TM" uuid="9896e23d-7c0e-4380-b981-b9635f1834b9" type="bool" direction="out">
+          <attribute type="unit.System.Attributes.Description" value="Состояние ТМ" />
+        </ct:parameter>
+        <ct:parameter name="SOST_OIS" type="bool" direction="out" uuid="6e065bee-1030-4d51-9643-c8acab64dda1">
+          <attribute type="unit.System.Attributes.Description" value="Состояние (OIS+)" />
+        </ct:parameter>
+        <ct:parameter name="DEBF_FACT_TM" type="float32" direction="out" uuid="6922e196-cd84-43a3-aa7a-38436cd54d01">
+          <attribute type="unit.System.Attributes.Description" value="Фактический дебит жидкости (ТМ)" />
+        </ct:parameter>
+        <ct:parameter name="DEBF_FACT_OIS" type="float32" direction="out" uuid="40c8da95-1165-4b92-89e5-c1faaafcd152">
+          <attribute type="unit.System.Attributes.Description" value="Фактический дебит жидкости (OIS+)" />
+        </ct:parameter>
+        <ct:parameter name="DEBF_REGIM" type="float32" direction="out" uuid="9670a1e8-2685-467d-9876-367f78375522">
+          <attribute type="unit.System.Attributes.Description" value="Режимный дебит жидкости" />
+        </ct:parameter>
+        <ct:parameter name="STATE" type="string" direction="out" uuid="f50d0393-5f87-4616-8f45-61998e5a0f5a">
+          <attribute type="unit.System.Attributes.Description" value="Состояние по фонду (OIS+)" />
+        </ct:parameter>
+        <ct:parameter name="PROST" type="string" direction="out" uuid="6d9114da-9258-482e-bff5-3f75a3d7cb5e">
+          <attribute type="unit.System.Attributes.Description" value="Причина простоя (OIS+)" />
+        </ct:parameter>
+        <ct:parameter name="PLAST" type="string" direction="out" uuid="4090e88e-65e2-40df-b5af-a586513cbe66">
+          <attribute type="unit.System.Attributes.Description" value="Пласт" />
+        </ct:parameter>
+        <ct:parameter name="METHOD" type="string" direction="out" uuid="92093887-1e01-49ca-bd44-6a6b6558983e">
+          <attribute type="unit.System.Attributes.Description" value="Способ эксплуатации" />
+        </ct:parameter>
+        <ct:parameter name="PLIN" type="float32" direction="out" uuid="a1a71072-a9cc-4a4c-8e94-9c7a563bd4bd">
+          <attribute type="unit.System.Attributes.Description" value="Давление линейное" />
+        </ct:parameter>
+        <ct:parameter name="PZAB" type="float32" direction="out" uuid="6194caa0-0288-4122-97aa-be1d54fc61a3">
+          <attribute type="unit.System.Attributes.Description" value="Давление забойное" />
+        </ct:parameter>
+        <attribute type="unit.System.Attributes.Title" />
+      </ct:type>
+      <ct:type name="OilWell_IOS" uuid="5855b2fb-71ed-4184-a0fe-bd79de9ae7f6" aspect="Aspects.IOS" original="OilWell_PLC">
+        <r:ref name="_OilWell_PLC" uuid="89cc0b07-b084-4c18-bfe2-d8d17cf3943d" type="OilWell_PLC" const-access="false" aspected="true" />
+        <ct:parameter name="SOST_TM" uuid="bf23e5cc-9962-4f5e-b72b-ea13501b4925" direction="out" type="bool">
+          <attribute type="unit.System.Attributes.Description" value="Состояние ТМ" />
+          <attribute type="unit.Server.Attributes.Unit" />
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+          <attribute type="unit.Server.Attributes.History" value="Enable=&quot;True&quot;" />
+        </ct:parameter>
+        <ct:bind source="_OilWell_PLC.SOST_TM" target="SOST_TM">
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+        </ct:bind>
+        <ct:parameter name="SOST_OIS" uuid="2ba2c2dc-9533-4c7b-a3a1-87e1ec2c83d3" direction="out" type="bool">
+          <attribute type="unit.System.Attributes.Description" value="Состояние (OIS+)" />
+          <attribute type="unit.Server.Attributes.Unit" />
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+          <attribute type="unit.Server.Attributes.History" value="Enable=&quot;True&quot;" />
+        </ct:parameter>
+        <ct:bind source="_OilWell_PLC.SOST_OIS" target="SOST_OIS">
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+        </ct:bind>
+        <ct:parameter name="STATE" uuid="211d1350-a0ee-407b-8ce5-e2240dd4fd3b" direction="out" type="string">
+          <attribute type="unit.System.Attributes.Description" value="Состояние по фонду (OIS+)" />
+          <attribute type="unit.Server.Attributes.Unit" />
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+          <attribute type="unit.Server.Attributes.History" value="Enable=&quot;True&quot;" />
+        </ct:parameter>
+        <ct:bind source="_OilWell_PLC.STATE" target="STATE">
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+        </ct:bind>
+        <ct:parameter name="PROST" uuid="e86f56e0-3f21-4aa6-9a49-3b1c6baf859e" direction="out" type="string">
+          <attribute type="unit.System.Attributes.Description" value="Причина простоя (OIS+)" />
+          <attribute type="unit.Server.Attributes.Unit" />
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+          <attribute type="unit.Server.Attributes.History" value="Enable=&quot;True&quot;" />
+        </ct:parameter>
+        <ct:bind source="_OilWell_PLC.PROST" target="PROST">
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+        </ct:bind>
+        <ct:parameter name="PLAST" uuid="147e2c6b-1d75-48a2-8370-d549637ed3ea" direction="out" type="string">
+          <attribute type="unit.System.Attributes.Description" value="Пласт" />
+          <attribute type="unit.Server.Attributes.Unit" />
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+        </ct:parameter>
+        <ct:bind source="_OilWell_PLC.PLAST" target="PLAST">
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+        </ct:bind>
+        <ct:parameter name="METHOD" uuid="490c692b-a39e-4317-b054-a5e6e4484787" direction="out" type="string">
+          <attribute type="unit.System.Attributes.Description" value="Способ эксплуатации" />
+          <attribute type="unit.Server.Attributes.Unit" />
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+        </ct:parameter>
+        <ct:bind source="_OilWell_PLC.METHOD" target="METHOD">
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+        </ct:bind>
+        <ct:parameter name="DEBF_FACT_TM" uuid="92513e63-c468-4b21-934e-d35874a7eff0" direction="out" type="float32">
+          <attribute type="unit.System.Attributes.Description" value="Фактический дебит жидкости (ТМ)" />
+          <attribute type="unit.Server.Attributes.Unit" value="м3/сут" />
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+          <attribute type="unit.Server.Attributes.History" value="Enable=&quot;True&quot;" />
+        </ct:parameter>
+        <ct:bind source="_OilWell_PLC.DEBF_FACT_TM" target="DEBF_FACT_TM">
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+        </ct:bind>
+        <ct:parameter name="DEBF_FACT_OIS" uuid="729b4a71-d191-4e77-ba4c-7b384bc96db5" direction="out" type="float32">
+          <attribute type="unit.System.Attributes.Description" value="Фактический дебит жидкости (OIS+)" />
+          <attribute type="unit.Server.Attributes.Unit" value="м3/сут" />
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+        </ct:parameter>
+        <ct:bind source="_OilWell_PLC.DEBF_FACT_OIS" target="DEBF_FACT_OIS">
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+        </ct:bind>
+        <ct:parameter name="DEBF_REGIM" uuid="4cf668cb-dac5-4af0-8a27-d939a0167c12" direction="out" type="float32">
+          <attribute type="unit.System.Attributes.Description" value="Режимный дебит жидкости" />
+          <attribute type="unit.Server.Attributes.Unit" value="м3/сут" />
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+          <attribute type="unit.Server.Attributes.History" value="Enable=&quot;True&quot;" />
+        </ct:parameter>
+        <ct:bind source="_OilWell_PLC.DEBF_REGIM" target="DEBF_REGIM">
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+        </ct:bind>
+        <attribute type="unit.System.Attributes.Description" />
+        <ct:parameter name="DEBF_DELTA" type="float32" direction="out" uuid="1ab69795-8f9b-40b2-8218-6cf21b36a3a4">
+          <attribute type="unit.System.Attributes.Description" value="Допустимое отклонение дебита жидкости" />
+        </ct:parameter>
+        <ct:parameter name="DEBF_FLT" type="string" direction="out" uuid="c8d1abff-a535-4464-9787-da97efdf91c8">
+          <attribute type="unit.Server.Attributes.Alarm">
+            <property name="value">{"Condition":{"IsEnabled":"true","Subconditions":[{"AckStrategy":1,"IsDeactivation":true,"IsEnabled":true,"Severity":1,"Type":1}],"Type":1}}</property>
+          </attribute>
+          <attribute type="unit.System.Attributes.Description" value="Отклонение дебита жидкости" />
+        </ct:parameter>
+        <ct:socket name="Faults" type="FaultsOilWell" direction="out" uuid="3417a857-68cb-4244-a3fb-98aab1ad2020" />
+        <ct:handler name="CalcHandler" uuid="0a3d8e8c-fc3d-4618-8249-82859faf6173">
+          <property name="source-code">if (DEBF_REGIM.Value &lt; 25)
+{
+	DEBF_DELTA = 3;
+}
+if (DEBF_REGIM.Value &gt;= 25 &amp;&amp;  DEBF_REGIM.Value &lt; 40)
+{
+	DEBF_DELTA = 4;
+}
+if (DEBF_REGIM.Value &gt;= 40 &amp;&amp;  DEBF_REGIM.Value &lt; 60)
+{
+	DEBF_DELTA = 4.2;
+}
+if (DEBF_REGIM.Value &gt;= 60 &amp;&amp;  DEBF_REGIM.Value &lt; 80)
+{
+	DEBF_DELTA = 5;
+}
+if (DEBF_REGIM.Value &gt;= 80 &amp;&amp;  DEBF_REGIM.Value &lt; 125)
+{
+	DEBF_DELTA = 7;
+}
+if (DEBF_REGIM.Value &gt;= 125 &amp;&amp;  DEBF_REGIM.Value &lt; 400)
+{
+	DEBF_DELTA = 10;
+}
+if (DEBF_REGIM.Value &gt;= 400)
+{
+	DEBF_DELTA = 15;
+}</property>
+          <ct:trigger on="DEBF_REGIM" cause="change" />
+        </ct:handler>
+        <ct:handler name="FaultHandler" uuid="b8573233-42b8-4fe7-97df-9f7bef960270">
+          <ct:trigger on="DEBF_FACT_TM" cause="change" />
+          <property name="source-code">if (DEBF_FACT_TM == 0)
+{
+	Faults.DebitLow = false;	
+	Faults.DebitHigh = false;
+	Faults.DebitZero = true;
+	Faults.DebitMiss = false;	
+	
+	DEBF_FLT = "&lt;Subcondition Type=\"Dynamic\" Message=\". Нулевой замер дебита жидкости\" Severity=\"801\" Enabled=\"1\" /&gt;";		
+}
+else if(DEBF_FACT_TM != 0 &amp;&amp; (DEBF_REGIM-DEBF_FACT_TM) &gt; DEBF_DELTA)
+{
+	Faults.DebitLow = true;	
+	Faults.DebitHigh = false;
+	Faults.DebitZero = false;
+	Faults.DebitMiss = false;	
+	
+	DEBF_FLT = "&lt;Subcondition Type=\"Dynamic\" Message=\". Снижение дебита жидкости\" Severity=\"801\" Enabled=\"1\" /&gt;";	
+}
+else if(DEBF_FACT_TM != 0 &amp;&amp; (DEBF_FACT_TM - DEBF_REGIM) &gt; DEBF_DELTA)
+{
+	Faults.DebitLow = false;	
+	Faults.DebitHigh = true;
+	Faults.DebitZero = false;
+	Faults.DebitMiss = false;	
+	
+	DEBF_FLT = "&lt;Subcondition Type=\"Dynamic\" Message=\". Завышение дебита жидкости\" Severity=\"801\" Enabled=\"1\" /&gt;";	
+}
+else
+{
+	Faults.DebitLow = false;	
+	Faults.DebitHigh = false;
+	Faults.DebitZero = false;
+	Faults.DebitMiss = false;	
+	
+	DEBF_FLT = "&lt;Subcondition Type=\"Dynamic\" Message=\". Дебит жидкости в норме\" Severity=\"1\" Enabled=\"1\" SoundEnabled=\"0\" /&gt;";	
+}
+</property>
+        </ct:handler>
+        <ct:parameter name="PLIN" direction="out" type="float32" uuid="4b94ecd7-0399-445f-a7c3-2a4eb8f325e8">
+          <attribute type="unit.System.Attributes.Description" value="Давление линейное" />
+          <attribute type="unit.Server.Attributes.Unit" value="МПа" />
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+          <attribute type="unit.Server.Attributes.History" value="Enable=&quot;True&quot;" />
+          <attribute type="unit.Server.Attributes.Alarm">
+            <property name="value">{"Condition":{"IsEnabled":"true","Subconditions":[{"AckStrategy":0,"IsDeactivation":true,"IsEnabled":true,"Message":". Давление линейное выше УВА","Severity":900,"Type":4,"Value":1.4},{"AckStrategy":0,"IsDeactivation":true,"IsEnabled":true,"Message":". Давление линейное выше УВТ","Severity":600,"Type":4,"Value":1.3},{"AckStrategy":0,"IsDeactivation":true,"IsEnabled":true,"Message":". Давление линейное в норме","Severity":1,"Type":5},{"AckStrategy":0,"IsDeactivation":true,"IsEnabled":true,"Message":". Давление линейное ниже УНТ","Severity":600,"Type":6,"Value":0.8},{"AckStrategy":0,"IsDeactivation":true,"IsEnabled":true,"Message":". Давление линейное ниже УНА","Severity":900,"Type":6,"Value":0.7}],"Type":3}}</property>
+          </attribute>
+        </ct:parameter>
+        <ct:parameter name="PZAB" direction="out" type="float32" uuid="34072080-fdfd-40f2-a71c-4e6d58e507dd">
+          <attribute type="unit.System.Attributes.Description" value="Давление забойное" />
+          <attribute type="unit.Server.Attributes.Unit" value="МПа" />
+          <attribute type="unit.Server.Attributes.WriteVQTEnable" />
+          <attribute type="unit.Server.Attributes.History" value="Enable=&quot;True&quot;" />
+          <attribute type="unit.Server.Attributes.Alarm">
+            <property name="value">{"Condition":{"IsEnabled":"true","Subconditions":[{"AckStrategy":0,"IsDeactivation":true,"IsEnabled":true,"Message":". Давление забойное выше нормы","Severity":800,"Type":4,"Value":10},{"AckStrategy":0,"IsEnabled":true,"Message":". Давление забойное в норме","Severity":1,"Type":5},{"AckStrategy":0,"IsDeactivation":true,"IsEnabled":true,"Message":". Давление забойное ниже нормы","Severity":800,"Type":6,"Value":6}],"Type":3}}</property>
+          </attribute>
+        </ct:parameter>
+        <ct:bind source="_OilWell_PLC.PZAB" target="PZAB" />
+        <attribute type="unit.System.Attributes.Title" />
+      </ct:type>
+      <ct:socket-type name="FaultsOilWell" uuid="b7626614-8bdf-4aaf-8a2c-cf833f8b5a08">
+        <ct:socket-parameter name="DebitLow" type="bool" uuid="0ed45373-286c-444c-81ba-edfd6178152d">
+          <attribute type="unit.System.Attributes.Description" value="Снижение дебита жидкости" />
+        </ct:socket-parameter>
+        <ct:socket-parameter name="DebitHigh" type="bool" uuid="8d55a560-7b85-4d04-a1fa-af39a5a29d33">
+          <attribute type="unit.System.Attributes.Description" value="Завышение дебита жидкости" />
+        </ct:socket-parameter>
+        <ct:socket-parameter name="DebitZero" type="bool" uuid="e3f7ab37-bd21-4b55-b3cd-cd23ad340f63">
+          <attribute type="unit.System.Attributes.Description" value="Нулевой замер дебита жидкости" />
+        </ct:socket-parameter>
+        <ct:socket-parameter name="DebitMiss" type="bool" uuid="7de23fe5-7398-4d24-afb7-2d68b9e49b56">
+          <attribute type="unit.System.Attributes.Description" value="Отсутствие замера дебита жидкости" />
+        </ct:socket-parameter>
+      </ct:socket-type>
+    </namespace>
+  </namespace>
+  <namespace name="Attributes" uuid="04f3361c-dbe8-49f1-9efc-1c18127b4725">
+    <attribute-type name="EUnit_atrr" type="string" title="EUnit_atrr" description="EUnit_atrr" allow-multiple="false" can-be-inherited="true" uuid="4ec27926-2872-4698-ac63-01d0fb19dec4" />
+    <namespace name="Pump" uuid="6f124aa4-6679-426b-b0cd-9491ac740381">
+      <attribute-type name="Iload_EU" type="string" title="Iload_EU" description="Ток нагрузки двигателя - инженерные единицы " allow-multiple="false" can-be-inherited="true" uuid="b4c22bf9-7b49-4840-98c4-d4717b742584" />
+      <attribute-type name="Efficiency_EU" type="string" title="Efficiency_EU" description="КПД - инженерные единицы " allow-multiple="false" can-be-inherited="true" uuid="e9b5d35b-b23c-46ba-8ae4-47760cdb0a4d" />
+      <attribute-type name="Press_EU" type="string" title="Press_EU" description="Давление - инженерные единицы " allow-multiple="false" can-be-inherited="true" uuid="62aa8a06-95aa-439d-a103-6c420b4e45fe" />
+      <attribute-type name="Temp_Bearing_EU" type="string" title="Temp_Bearing_EU" description="Температура подшипников скольжения двигателя - инженерные единицы " allow-multiple="false" can-be-inherited="true" uuid="378a5503-290b-4e58-a6b0-cbe4786dd3eb" />
+    </namespace>
+    <namespace name="RVS" uuid="e1ce4c1d-9cd2-4b6a-b90b-7e7c9d8755dd">
+      <attribute-type name="Level_EU" type="string" title="Level_EU" description="Уровень - инженерные единицы " allow-multiple="false" can-be-inherited="true" uuid="413c94d0-52fb-4c83-be3a-80951b1440ee" />
+      <attribute-type name="Temp_EU" type="string" title="Temp_EU" description="Температура - инженерные единицы " allow-multiple="false" can-be-inherited="true" uuid="39713e16-e198-45e0-b3cd-13431383ac8d" />
+      <attribute-type name="Press_EU" type="string" title="Press_EU" description="Давление - инженерные единицы " allow-multiple="false" can-be-inherited="true" uuid="6081d610-1db1-434c-bca2-a55e8714b40a" />
+      <attribute-type name="Dens_EU" type="string" title="Dens_EU" description="Плотность - инженерные единицы " allow-multiple="false" can-be-inherited="true" uuid="7469dfed-a719-4cc6-a1d3-47f4908eeb78" />
+      <attribute-type name="Volume_EU" type="string" title="Volume_EU" description="Объем - инженерные единицы " allow-multiple="false" can-be-inherited="true" uuid="7742a057-dd8f-4c10-adb6-28638f099182" />
+    </namespace>
+    <namespace name="Separator" uuid="09fade7f-9aca-4231-bf77-6f92b075ebc7">
+      <attribute-type name="Level_EU" type="string" title="Level_EU" description="Уровень - инженерные единицы " allow-multiple="false" can-be-inherited="true" uuid="5339d3ec-ef54-43dc-9935-dcf731dc7ac8" />
+      <attribute-type name="Temp_EU" type="string" title="Temp_EU" description="Температура - инженерные единицы " allow-multiple="false" can-be-inherited="true" uuid="5218e8e0-1160-4a84-bc48-ddce164c6045" />
+      <attribute-type name="Press_EU" type="string" title="Press_EU" description="Давление - инженерные единицы " allow-multiple="false" can-be-inherited="true" uuid="f50a8e7e-f981-43ff-b24c-3504950dead4" />
+    </namespace>
+  </namespace>
+  <namespace name="Templates" uuid="84a8fe81-3794-4c0a-a57c-7d8adaff8fb1" />
+</omx>

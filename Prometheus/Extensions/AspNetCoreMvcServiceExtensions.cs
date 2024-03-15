@@ -1,6 +1,5 @@
 using System.Reflection;
 using FluentValidation.AspNetCore;
-using Gotrg.Common.WebAPI.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;

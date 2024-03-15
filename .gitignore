@@ -534,3 +534,6 @@ BuildResults/
 !src/Tools/
 
 .tye/
+
+# Sonarqube
+**/.sonarqube/

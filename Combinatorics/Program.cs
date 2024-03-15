@@ -8,10 +8,10 @@ namespace Combinatorics
     {
         private static void Main(string[] args)
         {
-            foreach (var arrangement in Arrangements(new[] {9, 9, 9, 9}.ToArray()))
+            foreach (var arrangement in Arrangements(new[] {9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9}.ToArray()))
             {
                 var combinator = string.Join(", ", arrangement);
-                Console.WriteLine(combinator);
+                // Console.WriteLine(combinator);
             }
         }
 
