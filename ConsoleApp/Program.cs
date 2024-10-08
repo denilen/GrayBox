@@ -8,9 +8,12 @@ internal static class Program
     {
         var date = DateTime.Now;
         var dateTimeOffset = DateTimeOffset.Now;
-
+    
         Console.WriteLine(date.ToString(CultureInfo.CurrentCulture));
         Console.WriteLine(date.ToUniversalTime().ToString(CultureInfo.CurrentCulture));
         Console.WriteLine(dateTimeOffset.ToUniversalTime().ToString());
+        
+        
     }
+    
 }

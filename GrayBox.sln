@@ -58,6 +58,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gb.grpc.client", "gb.grpc.c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facility", "Facility\Facility.csproj", "{1508CCA0-3728-44DC-BE2E-629FC91F4791}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlotMachineOne", "SlotMachineOne\SlotMachineOne.csproj", "{E2237C61-A3AB-4C77-80F0-255A3CED6946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlotMachineTwo", "SlotMachineTwo\SlotMachineTwo.csproj", "{E3836C15-D897-40AE-A575-019C709ECEEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -172,6 +176,14 @@ Global
 		{1508CCA0-3728-44DC-BE2E-629FC91F4791}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1508CCA0-3728-44DC-BE2E-629FC91F4791}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1508CCA0-3728-44DC-BE2E-629FC91F4791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2237C61-A3AB-4C77-80F0-255A3CED6946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2237C61-A3AB-4C77-80F0-255A3CED6946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2237C61-A3AB-4C77-80F0-255A3CED6946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2237C61-A3AB-4C77-80F0-255A3CED6946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3836C15-D897-40AE-A575-019C709ECEEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3836C15-D897-40AE-A575-019C709ECEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3836C15-D897-40AE-A575-019C709ECEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3836C15-D897-40AE-A575-019C709ECEEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F750E067-B565-4890-B772-676A43434934} = {8E838322-09D8-43CA-B809-0CEDE7B8F0DB}
