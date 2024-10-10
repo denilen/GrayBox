@@ -14,7 +14,7 @@ internal class SlotMachine
 {
     private int _tapesCount = 5;
     private ConsoleColor _machineColor = ConsoleColor.Green;
-    public string[] Tapes { get; set; } = { "7", "J", "Q", "K", "A", "B", "C", "D" };
+    public string[] Tapes { get; set; } = { "0", "1", "2", "3", "4", "5", "6", "7", "7", "8", "Q", "K", "A", "B", "C", "D" };
 
     public void SetMachineColor(ConsoleColor color)
     {

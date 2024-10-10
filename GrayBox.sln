@@ -62,6 +62,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlotMachineOne", "SlotMachi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlotMachineTwo", "SlotMachineTwo\SlotMachineTwo.csproj", "{E3836C15-D897-40AE-A575-019C709ECEEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CronosExample", "CronosExample\CronosExample.csproj", "{4E292C30-5380-4464-B14A-60245E4AAFA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -184,6 +186,10 @@ Global
 		{E3836C15-D897-40AE-A575-019C709ECEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3836C15-D897-40AE-A575-019C709ECEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3836C15-D897-40AE-A575-019C709ECEEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E292C30-5380-4464-B14A-60245E4AAFA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E292C30-5380-4464-B14A-60245E4AAFA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E292C30-5380-4464-B14A-60245E4AAFA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E292C30-5380-4464-B14A-60245E4AAFA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F750E067-B565-4890-B772-676A43434934} = {8E838322-09D8-43CA-B809-0CEDE7B8F0DB}
