@@ -25,7 +25,7 @@
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.0" />
         <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.2" />
         <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.3.0" />
-        <PackageReference Include="System.Text.Json" Version="6.0.2" />
+        <PackageReference Include="System.Text.Json" Version="6.0.10" />
         <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.16.0" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.16.0" />
         <PackageReference Include="CorrelationId" Version="3.0.1" />
