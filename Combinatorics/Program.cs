@@ -1,56 +1,31 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using BenchmarkDotNet.Running;
+using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Jobs;
+using System.IO;
 
 namespace Combinatorics
 {
-    internal static class Program
+    public class Program
     {
-        private static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            foreach (var arrangement in Arrangements(new[] {9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9}.ToArray()))
-            {
-                var combinator = string.Join(", ", arrangement);
-                // Console.WriteLine(combinator);
-            }
-        }
+            // Создаем конфигурацию с отключенным выводом в консоль
+            var config = DefaultConfig.Instance
+                .WithOptions(ConfigOptions.DisableOptimizationsValidator)
+                .WithOptions(ConfigOptions.DisableLogFile)
+                .AddJob(Job.Default
+                    .WithWarmupCount(1)
+                    .WithIterationCount(3));
 
-        private static IEnumerable<int[]> Arrangements(this IReadOnlyList<int> maxValues)
-        {
-            var a = new int[maxValues.Count];
-            var m = maxValues.Count;
-
-            yield return a;
-
-            int j;
-
-            do
-            {
-                j = m - 1;
-
-                while (j >= 0 && a[j] == maxValues[j])
-                    j--;
-
-                if (j < 0)
-                    yield break;
-
-                if (a[j] >= maxValues[j])
-                    j--;
-
-                a[j]++;
-
-                if (j == m - 1)
-                {
-                    yield return a;
-                }
-                else
-                {
-                    for (var k = j + 1; k < m; k++)
-                        a[k] = 0;
-
-                    yield return a;
-                }
-            } while (j >= 0);
+            // Запускаем бенчмарк и сохраняем результаты в файл
+            var summary = BenchmarkRunner.Run<CombinatoricsBenchmark>(config);
+            
+            // Сохраняем результаты в файл
+            var reportPath = Path.Combine(Directory.GetCurrentDirectory(), "BenchmarkResults.txt");
+            File.WriteAllText(reportPath, summary.ToString());
+            
+            // Выводим путь к файлу с результатами
+            System.Console.WriteLine($"Benchmark results saved to: {reportPath}");
         }
     }
 }

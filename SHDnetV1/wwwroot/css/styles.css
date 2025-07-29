@@ -1,0 +1,48 @@
+.bg-black {
+    background-color: black;
+}
+
+.text-green-400 {
+    color: #68D391; /* Green color */
+}
+
+.font-mono {
+    font-family: monospace;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.animate-pulse-slow {
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.9;
+    }
+}
+
+.glitch::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 0, 0.05),
+        rgba(0, 255, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}

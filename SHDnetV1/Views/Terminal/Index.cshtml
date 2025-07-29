@@ -1,0 +1,52 @@
+@model SHDnet.Models.CommandResult
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terminal</title>
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css">
+</head>
+<body class="bg-black text-green-400 font-mono min-h-screen p-4 animate-pulse-slow glitch">
+<div class="whitespace-pre-wrap text-sm">
+    @if (Model.Lines != null && Model.Lines.Count > 0)
+    {
+        foreach (var line in Model.Lines)
+        {
+            <div>@line</div>
+        }
+    }
+    else
+    {
+        <div>No output available.</div>
+    }
+</div>
+
+<form id="commandForm">
+    <span class="text-green-600">$</span>
+    <input id="commandInput" class="bg-black outline-none ml-2 w-3/4" autofocus />
+</form>
+
+<script>
+    const form = document.getElementById('commandForm');
+    const input = document.getElementById('commandInput');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const response = await fetch('/Terminal/ExecuteCommand', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `input=${input.value}`,
+        });
+        const result = await response.json();
+        const linesContainer = document.querySelector('.whitespace-pre-wrap');
+        linesContainer.innerHTML = '';
+        result.lines.forEach(line => {
+            const lineDiv = document.createElement('div');
+            lineDiv.innerText = line;
+            linesContainer.appendChild(lineDiv);
+        });
+        input.value = '';
+    });
+</script>
+</body>
+</html>
