@@ -232,17 +232,12 @@ public class CombinatoricsBenchmark
         // Using ArrayPool for memory allocation
         var arrayPool = ArrayPool<int>.Shared;
         var current = arrayPool.Rent(_testArray.Length);
-        var result = arrayPool.Rent(_testArray.Length);
 
         try
         {
-            // Copy test data
-            Array.Copy(_testArray, 0, result, 0, _testArray.Length);
-
-            // Set the total number of combinations to display progress
-            // For an array of 100 elements with values from 0 to 9: 10^100 combinations
-            // This is an astronomically large number, so we will display progress by the number of iterations
-            _totalCombinations = (int)Math.Min(long.MaxValue, (long)Math.Pow(10, Math.Min(10, _testArray.Length)));
+            // Calculate the total number of combinations for progress display.
+            // This is the product of (max_value + 1) for each position.
+            _totalCombinations = (int)_testArray.Aggregate(1L, (acc, val) => acc * (val + 1));
             _processedCombinations = 0;
 
             Console.WriteLine("\nStarting optimized version with Span<T>...");
@@ -250,31 +245,35 @@ public class CombinatoricsBenchmark
             for (var i = 0; i < Iterations; i++)
             {
                 // Reset the current combination array
-                Array.Clear(current, 0, current.Length);
+                Array.Clear(current, 0, _testArray.Length);
 
-                // Process the first combination
-                ProcessResult(current);
+                // Process the first combination (all zeros)
+                ProcessResult(current.AsSpan(0, _testArray.Length));
 
-                // Generate and process all combinations
+                // Generate and process all subsequent combinations
                 while (true)
-                {
+                {                    
                     var position = _testArray.Length - 1;
 
-                    // Find the position to increment
-                    while (position >= 0 && current[position] >= result[position])
+                    // Find the rightmost position to increment
+                    while (position >= 0 && current[position] == _testArray[position])
+                    {
                         position--;
+                    }
 
+                    // If all positions have reached their max value, we are done
                     if (position < 0)
                         break;
 
-                    // Increment and reset the lower bits
+                    // Increment the position
                     current[position]++;
 
+                    // Reset all subsequent positions to zero
                     for (var j = position + 1; j < _testArray.Length; j++)
                         current[j] = 0;
 
-                    // Process the combination
-                    ProcessResult(current);
+                    // Process the new combination
+                    ProcessResult(current.AsSpan(0, _testArray.Length));
                 }
 
                 Console.WriteLine($"\nIteration {i + 1} of {Iterations} completed");
@@ -284,9 +283,8 @@ public class CombinatoricsBenchmark
         }
         finally
         {
-            // Return arrays to the pool
+            // Return array to the pool
             arrayPool.Return(current);
-            arrayPool.Return(result);
         }
     }
 }
