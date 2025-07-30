@@ -12,7 +12,7 @@ internal static class Program
 
 internal class SlotMachine
 {
-    private int _tapesCount = 5;
+    private readonly int _tapesCount = 3;
     private ConsoleColor _machineColor = ConsoleColor.Green;
     public string[] Tapes { get; set; } = { "0", "1", "2", "3", "4", "5", "6", "7", "7", "8", "Q", "K", "A", "B", "C", "D" };
 

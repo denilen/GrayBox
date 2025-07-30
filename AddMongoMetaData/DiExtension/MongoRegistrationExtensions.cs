@@ -1,9 +1,7 @@
-using AddMetaDataMongo.Configuration;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using AddMongoMetaData.Configuration;
 using MongoDB.Driver;
 
-namespace AddMetaDataMongo.DiExtension;
+namespace AddMongoMetaData.DiExtension;
 
 internal static class MongoRegistrationExtensions
 {
@@ -51,7 +49,7 @@ internal static class MongoRegistrationExtensions
                 .GetRequiredSection(mainSectionName)
                 .GetRequiredSection(sectionName);
 
-        return section.GetConfig<T>();// .Get<T>();
+        return section.Get<T>();
     }
 
     private static List<MongoServerAddress> GetServers(string servers, int port)

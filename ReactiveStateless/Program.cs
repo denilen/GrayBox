@@ -1,13 +1,12 @@
 ﻿using System;
 
-namespace ReactiveStateless
+namespace ReactiveStateless;
+
+internal static class Program
 {
-    internal static class Program
+    private static void Main(string[] args)
     {
-        private static void Main(string[] args)
-        {
-            Console.WriteLine("Press any key...");
-            Console.ReadKey(true);
-        }
+        Console.WriteLine("Press any key...");
+        Console.ReadKey(true);
     }
 }

@@ -1,4 +1,4 @@
-namespace AddMetaDataMongo.Configuration;
+namespace AddMongoMetaData.Configuration;
 
 public class MongoConfig
 {

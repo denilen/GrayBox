@@ -1,9 +1,7 @@
-﻿using System;
-using System.Threading;
-using NAudio.Wave;
+﻿using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 
-public class R2D2SoundGenerator
+internal static class R2D2SoundGenerator
 {
     private const int SampleRate = 44100;
     private const float BaseFrequency = 1000f;
@@ -14,10 +12,11 @@ public class R2D2SoundGenerator
 
         while (true)
         {
-            string input = Console.ReadLine();
-            if (input.ToLower() == "exit") break;
+            var input = Console.ReadLine();
 
-            GenerateR2D2Sound(input);
+            if (input?.ToLower() == "exit") break;
+
+            GenerateR2D2Sound(input!);
         }
     }
 
@@ -25,30 +24,21 @@ public class R2D2SoundGenerator
     {
         try
         {
-            using (var waveOut = new WaveOutEvent())
+            using var waveOut = new WaveOutEvent();
+
+            foreach (var fade in text.Select(c => BaseFrequency + c * 10)
+                         .Select(frequency => new SignalGenerator(SampleRate, 1)
+                         {
+                             Frequency = frequency,
+                             Type = SignalGeneratorType.Sin
+                         }).Select(signalGenerator => new FadeInOutSampleProvider(signalGenerator, true)))
             {
-                foreach (char c in text)
-                {
-                    // Генерируем частоту на основе символа
-                    float frequency = BaseFrequency + (c * 10);
+                waveOut.Init(fade);
+                waveOut.Play();
 
-                    // Создаем генератор сигнала
-                    var signalGenerator = new SignalGenerator(SampleRate, 1)
-                    {
-                        Frequency = frequency,
-                        Type = SignalGeneratorType.Sin
-                    };
-
-                    // Добавляем эффект затухания
-                    var fade = new FadeInOutSampleProvider(signalGenerator, true);
-
-                    waveOut.Init(fade);
-                    waveOut.Play();
-
-                    // Ждем короткое время между звуками
-                    Thread.Sleep(100);
-                    waveOut.Stop();
-                }
+                // Ждем короткое время между звуками
+                Thread.Sleep(100);
+                waveOut.Stop();
             }
         }
         catch (Exception ex)
@@ -57,35 +47,3 @@ public class R2D2SoundGenerator
         }
     }
 }
-
-/*
-Анализ кода:
-
-1. Зависимости:
-   - Программа использует библиотеку NAudio для работы со звуком
-   - Требуется установка NuGet пакета NAudio
-
-2. Основные компоненты:
-   - SampleRate = 44100 Hz - стандартная частота дискретизации для аудио
-   - BaseFrequency = 1000 Hz - базовая частота для генерации звуков
-
-3. Принцип работы:
-   - Программа читает текст из консоли
-   - Для каждого символа генерируется уникальный звук
-   - Частота звука зависит от ASCII-кода символа
-   - Используется синусоидальный сигнал для более "электронного" звучания
-
-4. Особенности реализации:
-   - Применяется эффект затухания для плавности звуков
-   - Между звуками добавлены паузы для разборчивости
-   - Реализована обработка ошибок
-
-5. Ограничения:
-   - Требует поддержки аудиоустройств
-   - Может потребоваться настройка прав доступа к аудио на MacOS
-
-6. Возможные улучшения:
-   - Добавление различных звуковых эффектов
-   - Настройка параметров генерации через конфигурацию
-   - Сохранение сгенерированного звука в файл
-*/

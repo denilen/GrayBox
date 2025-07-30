@@ -1,7 +1,6 @@
-using MassTransit;
-using MassTransitFSM.Domain.Events;
+using MassTransit.FSM.Domain.Events;
 
-namespace MassTransitFSM.Domain.States;
+namespace MassTransit.FSM.Domain.States;
 
 public class OrderStateMachine : MassTransitStateMachine<OrderState>
 {

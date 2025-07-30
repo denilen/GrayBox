@@ -40,4 +40,10 @@
         <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="obj 2\project.assets.json" />
+      <_ContentIncludedByDefault Remove="obj 2\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="obj 2\Prometheus.csproj.nuget.dgspec.json" />
+    </ItemGroup>
+
 </Project>

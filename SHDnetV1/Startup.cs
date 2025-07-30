@@ -1,4 +1,4 @@
-namespace SHDnet;
+namespace SHDnetV1;
 
 public class Startup
 {

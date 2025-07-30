@@ -1,13 +1,12 @@
-namespace ReactiveFSM.Application.BetStateMachine
+namespace ReactiveFSM.Application.BetStateMachine;
+
+public interface IFsmBetState
 {
-    public interface IFsmBetState
-    {
-        void Initial(FsmBetState betLogic);
+    void Initial(FsmBetState betLogic);
 
-        void Calculate(FsmBetState betLogic);
+    void Calculate(FsmBetState betLogic);
 
-        void Cancel(FsmBetState betLogic);
+    void Cancel(FsmBetState betLogic);
 
-        void Finish(FsmBetState betLogic);
-    }
+    void Finish(FsmBetState betLogic);
 }

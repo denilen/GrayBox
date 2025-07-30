@@ -5,23 +5,24 @@ using GrpcGreeter;
 
 namespace gb.grpc.client
 {
-    class Program
+    internal static class Program
     {
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine("Hello World!");
-        //}
         static async Task Main(string[] args)
         {
             // создаем канал для обмена сообщениями с сервером
             // параметр - адрес сервера gRPC
             using var channel = GrpcChannel.ForAddress("https://localhost:5002");
+
             // создаем клиента
             var client = new Greeter.GreeterClient(channel);
+
             Console.Write("Введите имя: ");
-            string name = Console.ReadLine();
+
+            var name = Console.ReadLine();
+
             // обмениваемся сообщениями с сервером
             var reply = await client.SayHelloAsync(new HelloRequest { Name = name });
+
             Console.WriteLine("Ответ сервера: " + reply.Message);
             Console.ReadKey();
         }

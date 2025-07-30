@@ -1,10 +1,9 @@
-namespace ReactiveFSM.Application.Messages
+namespace ReactiveFSM.Application.Messages;
+
+/// <summary>
+/// Команда: посчитать кэфы
+/// </summary>
+public class CalculateBets : MatchMessage
 {
-    /// <summary>
-    /// Команда: посчитать кэфы
-    /// </summary>
-    public class CalculateBets : MatchMessage
-    {
-        public string Payload { get; set; }
-    }
+    public string Payload { get; set; }
 }

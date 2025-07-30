@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using SHDnet.Models;
+using SHDnetV1.Models;
 
-namespace SHDnet.Controllers;
+namespace SHDnetV1.Controllers;
 
 public class TerminalController : Controller
 {

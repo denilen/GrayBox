@@ -1,7 +1,7 @@
 ﻿using MassTransit;
-using MassTransitFSM.Domain.States;
-using MassTransitFSM.Infrastructure.Persistence;
-using MassTransitFSM.Services;
+using MassTransit.FSM.Domain.States;
+using MassTransit.FSM.Infrastructure.Persistence;
+using MassTransit.FSM.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

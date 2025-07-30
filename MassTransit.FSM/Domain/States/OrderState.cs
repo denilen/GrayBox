@@ -1,4 +1,4 @@
-namespace MassTransitFSM.Domain.States;
+namespace MassTransit.FSM.Domain.States;
 
 using MassTransit;
 

@@ -3,23 +3,23 @@ using System.Threading;
 using ReactiveFSM.Application;
 using ReactiveFSM.Application.Messages;
 
-namespace ReactiveFSM
+namespace ReactiveFSM;
+
+public static class Program
 {
-    public static class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
+        var matchFacade = new LogicsFacade();
+
+        for (var i = 1; i < 10; i++)
         {
-            var matchFacade = new LogicsFacade();
+            var calculateBets = new CalculateBets {MatchId = i};
 
-            for (var i = 1; i < 10; i++)
-            {
-                var calculateBets = new CalculateBets {MatchId = i};
-                matchFacade.Push(calculateBets);
+            matchFacade.Push(calculateBets);
 
-                Thread.Sleep(10);
-            }
-
-            Console.ReadLine();
+            Thread.Sleep(10);
         }
+
+        Console.ReadLine();
     }
 }

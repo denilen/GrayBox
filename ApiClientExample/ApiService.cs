@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+
+namespace ApiClientExample;
 
 public class ApiService : IApiService
 {
@@ -29,6 +25,36 @@ public class ApiService : IApiService
     public async Task<HttpResponseMessage> CreateAsync(string endpoint, Dictionary<string, string> customHeaders = null)
     {
         return await _httpClient.PostAsync(endpoint, null);
+    }
+
+    public Task<HttpResponseMessage> UpdateAsync<T>(string endpoint, T data, Dictionary<string, string> customHeaders = null)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<HttpResponseMessage> UpdateAsync(string endpoint, Dictionary<string, string> customHeaders = null)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<HttpResponseMessage> PatchAsync<T>(string endpoint, T data, Dictionary<string, string> customHeaders = null)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<HttpResponseMessage> PatchAsync(string endpoint, Dictionary<string, string> customHeaders = null)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<HttpResponseMessage> ReadAsync(string endpoint, Dictionary<string, string> customHeaders = null)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<HttpResponseMessage> DeleteAsync(string endpoint, Dictionary<string, string> customHeaders = null)
+    {
+        throw new NotImplementedException();
     }
 
     public async Task<HttpResponseMessage> UploadFileAsync(

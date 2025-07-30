@@ -1,12 +1,11 @@
-﻿using System;
-using System.Threading;
+﻿namespace RotationOfTheArrow1;
 
-class Program
+static class Program
 {
-    static void Main()
+    private static void Main()
     {
-        char[] spinner = new char[] { '\u2192', '\u2193', '\u2190', '\u2191' }; // → - ↑ это Unicode стрелки
-        int index = 0;
+        var spinner = new char[] { '\u2192', '\u2193', '\u2190', '\u2191' }; // → - ↑ это Unicode стрелки
+        var index = 0;
 
         Console.WriteLine("Процесс выполняется, пожалуйста подождите...");
 

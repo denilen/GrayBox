@@ -1,5 +1,8 @@
-namespace IntelligentAgentDemo;
+namespace AI_Agent;
 
+/// <summary>
+/// Sensor
+/// </summary>
 public class TemperatureSensor
 {
     private Environment _env;

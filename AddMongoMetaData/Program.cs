@@ -1,7 +1,11 @@
-using WorkerService1;
+using AddMongoMetaData.DiExtension;
 
 var builder = Host.CreateApplicationBuilder(args);
-builder.Services.AddHostedService<Worker>();
+
+builder.Services.RegisterMongo(builder.Configuration);
+
+// builder.Services.AddHostedService<Worker>();
 
 var host = builder.Build();
+
 host.Run();

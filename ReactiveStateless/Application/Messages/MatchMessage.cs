@@ -1,10 +1,9 @@
-namespace ReactiveStateless.Application.Messages
+namespace ReactiveStateless.Application.Messages;
+
+/// <summary>
+///  Данные по ставке
+/// </summary>
+public class MatchMessage
 {
-    /// <summary>
-    ///  Данные по ставке
-    /// </summary>
-    public class MatchMessage
-    {
-        public long MatchId { get; set; }
-    }
+    public long MatchId { get; set; }
 }

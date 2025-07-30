@@ -7,10 +7,14 @@ namespace RefVariable
         private static void Main(string[] args)
         {
             var number = 5;
-         
+
             Console.WriteLine($"Число до метода Increment: {number}");
+
             Increment(ref number);
+
             Console.WriteLine($"Число после метода Increment: {number}");
+
+            return;
 
             static void Increment(ref int n)
             {

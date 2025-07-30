@@ -1,5 +1,8 @@
-namespace IntelligentAgentDemo;
+namespace AI_Agent;
 
+/// <summary>
+/// AI agent
+/// </summary>
 public class ThermostatAgent
 {
     private readonly TemperatureSensor _sensor;
@@ -7,7 +10,8 @@ public class ThermostatAgent
     private readonly double _targetTemperature = 22.0;
     private readonly double _tolerance = 0.5;
 
-    public ThermostatAgent(TemperatureSensor sensor, Heater heater)
+    public ThermostatAgent(TemperatureSensor sensor,
+                           Heater heater)
     {
         _sensor = sensor;
         _heater = heater;
@@ -15,7 +19,8 @@ public class ThermostatAgent
 
     public void PerceiveAndAct()
     {
-        double currentTemp = _sensor.ReadTemperature();
+        var currentTemp = _sensor.ReadTemperature();
+
         Console.WriteLine($"🌡️ Температура: {currentTemp}°C");
 
         if (currentTemp < _targetTemperature - _tolerance)
