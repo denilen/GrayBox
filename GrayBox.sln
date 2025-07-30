@@ -58,8 +58,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facility", "Facility\Facili
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlotMachine1", "SlotMachine1\SlotMachine1.csproj", "{3B2A0177-FC66-4957-8554-B9DE8B239819}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiRandomNumberGenerator", "PiRandomNumberGenerator\PiRandomNumberGenerator.csproj", "{46734E26-9540-42E5-8406-0608684F18FC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMachine2", "StateMachine2\StateMachine2.csproj", "{20394D2D-C923-4933-942A-51373240D85D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMachine2.Tests", "StateMachine2.Tests\StateMachine2.Tests.csproj", "{DF705EB1-D3B1-47E2-944A-D20681278F4A}"
@@ -92,7 +90,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClientExample", "ApiClie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiConsoleMenu", "UiConsoleMenu\UiConsoleMenu.csproj", "{785DA777-C138-4E13-9E36-0F47C95AD530}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiGeneratorLeibniz", "PiGeneratorLeibniz\PiGeneratorLeibniz.csproj", "{A0C07F50-EF9F-4E0B-B24C-0F7408DF8745}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiGenerator", "PiGenerator\PiGenerator.csproj", "{A0C07F50-EF9F-4E0B-B24C-0F7408DF8745}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -208,10 +206,6 @@ Global
 		{3B2A0177-FC66-4957-8554-B9DE8B239819}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B2A0177-FC66-4957-8554-B9DE8B239819}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B2A0177-FC66-4957-8554-B9DE8B239819}.Release|Any CPU.Build.0 = Release|Any CPU
-		{46734E26-9540-42E5-8406-0608684F18FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{46734E26-9540-42E5-8406-0608684F18FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{46734E26-9540-42E5-8406-0608684F18FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{46734E26-9540-42E5-8406-0608684F18FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{20394D2D-C923-4933-942A-51373240D85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{20394D2D-C923-4933-942A-51373240D85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20394D2D-C923-4933-942A-51373240D85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
