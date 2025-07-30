@@ -7,15 +7,15 @@ namespace AutomapperJsonConvertor
 {
     public class CorporateRatesInfo
     {
-        public string        Conum      { get; set; }
-        public string        Name       { get; set; }
-        public string        AgencyName { get; set; }
-        public List<SaaCode> SaaCodes   { get; set; }
+        public string Conum { get; set; }
+        public string Name { get; set; }
+        public string AgencyName { get; set; }
+        public List<SaaCode> SaaCodes { get; set; }
     }
 
     public class SaaCode
     {
-        public string Code        { get; set; }
+        public string Code { get; set; }
         public string Description { get; set; }
     }
 
@@ -24,13 +24,13 @@ namespace AutomapperJsonConvertor
         protected void Configure()
         {
             CreateMap<JObject, SaaCode>()
-                .ForMember("Code",        cfg => { cfg.MapFrom(jo => jo["code"]); })
+                .ForMember("Code", cfg => { cfg.MapFrom(jo => jo["code"]); })
                 .ForMember("Description", cfg => { cfg.MapFrom(jo => jo["description"]); });
 
             CreateMap<JObject, CorporateRatesInfo>()
-                .ForMember("SaaCodes",   cfg => { cfg.MapFrom(jo => jo["sAA"]); })
-                .ForMember("Conum",      cfg => { cfg.MapFrom(jo => jo["conum"]); })
-                .ForMember("Name",       cfg => { cfg.MapFrom(jo => jo["name"]); })
+                .ForMember("SaaCodes", cfg => { cfg.MapFrom(jo => jo["sAA"]); })
+                .ForMember("Conum", cfg => { cfg.MapFrom(jo => jo["conum"]); })
+                .ForMember("Name", cfg => { cfg.MapFrom(jo => jo["name"]); })
                 .ForMember("AgencyName", cfg => { cfg.MapFrom(jo => jo["agencyName"]); });
         }
     }
