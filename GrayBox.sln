@@ -92,6 +92,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClientExample", "ApiClie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiConsoleMenu", "UiConsoleMenu\UiConsoleMenu.csproj", "{785DA777-C138-4E13-9E36-0F47C95AD530}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiGeneratorLeibniz", "PiGeneratorLeibniz\PiGeneratorLeibniz.csproj", "{A0C07F50-EF9F-4E0B-B24C-0F7408DF8745}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -274,6 +276,10 @@ Global
 		{785DA777-C138-4E13-9E36-0F47C95AD530}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{785DA777-C138-4E13-9E36-0F47C95AD530}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{785DA777-C138-4E13-9E36-0F47C95AD530}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0C07F50-EF9F-4E0B-B24C-0F7408DF8745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C07F50-EF9F-4E0B-B24C-0F7408DF8745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C07F50-EF9F-4E0B-B24C-0F7408DF8745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C07F50-EF9F-4E0B-B24C-0F7408DF8745}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F750E067-B565-4890-B772-676A43434934} = {8E838322-09D8-43CA-B809-0CEDE7B8F0DB}

@@ -90,6 +90,7 @@ public class CombinatoricsBenchmark
         {
             // Using Parallel.ForEach for parallel processing
             var arrangements = OptimizedArrangements(_testArray).ToArray();
+
             Parallel.ForEach(arrangements, arr => { ProcessResult(arr); });
         }
     }
@@ -252,7 +253,7 @@ public class CombinatoricsBenchmark
 
                 // Generate and process all subsequent combinations
                 while (true)
-                {                    
+                {
                     var position = _testArray.Length - 1;
 
                     // Find the rightmost position to increment
