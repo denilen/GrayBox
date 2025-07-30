@@ -12,16 +12,16 @@ public static class Program
 {
     public static void Main(string[] args)
     {
-        // Настраиваем конфигурацию бенчмарка
+        // Configure the benchmark
         var config = DefaultConfig.Instance
             .WithOptions(ConfigOptions.DisableOptimizationsValidator)
             .AddExporter(MarkdownExporter.GitHub)
             .AddExporter(new CsvExporter(CsvSeparator.Comma));
 
-        // Запускаем бенчмарк
+        // Run the benchmark
         var summary = BenchmarkRunner.Run<CombinatoricsBenchmark>(config);
 
-        // Сохраняем результаты в файл
+        // Save the results to a file
         const string resultsDir = "BenchmarkResults";
 
         Directory.CreateDirectory(resultsDir);
@@ -29,10 +29,10 @@ public static class Program
         var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
         var resultsFile = Path.Combine(resultsDir, $"BenchmarkResults_{timestamp}.md");
 
-        // Сохраняем полный отчёт
+        // Save the full report
         File.WriteAllText(resultsFile, summary.ToString());
 
-        // Сохраняем краткую сводку
+        // Save the summary
         var summaryFile = Path.Combine(resultsDir, "LatestResults.md");
         var reportLines = summary.Reports
             .AsEnumerable()
@@ -41,7 +41,7 @@ public static class Program
                 var stats = r.GcStats;
                 var meanTime = r.ResultStatistics?.Mean / 1000 ?? 0;
 
-                // Получаем информацию о выделенной памяти из метрик
+                // Get allocated memory information from metrics
                 var memoryMetric = r.Metrics
                     .FirstOrDefault(m => m.Key == "Allocated Memory");
 
@@ -49,7 +49,7 @@ public static class Program
 
                 if (memoryMetric.Key != null)
                 {
-                    // Преобразуем значение метрики в double
+                    // Convert the metric value to double
                     allocatedBytes = double.TryParse(memoryMetric.Value.ToString(), out var bytes) ? bytes : 0;
                 }
 
@@ -60,25 +60,25 @@ public static class Program
             })
             .ToList();
 
-        var summaryContent = $"# Результаты бенчмарков ({DateTime.Now:yyyy-MM-dd HH:mm:ss})\n\n" +
-                             "| Метод                            | Время (μs) | Gen 0 | Gen 1 | Gen 2 | Памяти/опер. |\n" +
+        var summaryContent = $"# Benchmark Results ({DateTime.Now:yyyy-MM-dd HH:mm:ss})\n\n" +
+                             "| Method                           | Time (μs) | Gen 0 | Gen 1 | Gen 2 | Allocated/Op |\n" +
                              "|----------------------------------|-----------:|------:|------:|------:|-------------:|\n" +
                              string.Join("\n", reportLines);
 
         File.WriteAllText(summaryFile, summaryContent);
 
-        Console.WriteLine("\nБенчмарки завершены!");
-        Console.WriteLine($"Полный отчёт сохранён в: {Path.GetFullPath(resultsFile)}");
-        Console.WriteLine($"Краткая сводка: {Path.GetFullPath(summaryFile)}\n");
+        Console.WriteLine("\nBenchmarks completed!");
+        Console.WriteLine($"Full report saved to: {Path.GetFullPath(resultsFile)}");
+        Console.WriteLine($"Summary: {Path.GetFullPath(summaryFile)}\n");
 
-        // Выводим краткую сводку в консоль
-        Console.WriteLine("Краткие результаты:");
+        // Print the summary to the console
+        Console.WriteLine("Summary Results:");
         Console.WriteLine(summaryContent);
 
-        // Оставляем консоль открытой для просмотра результатов
+        // Keep the console open to view the results
         if (!args.Contains("--no-wait"))
         {
-            Console.WriteLine("\nНажмите любую клавишу для выхода...");
+            Console.WriteLine("\nPress any key to exit...");
             Console.ReadKey();
         }
     }
