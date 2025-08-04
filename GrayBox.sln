@@ -92,6 +92,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiConsoleMenu", "UiConsoleM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiGenerator", "PiGenerator\PiGenerator.csproj", "{A0C07F50-EF9F-4E0B-B24C-0F7408DF8745}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingMethods", "SortingMethods\SortingMethods.csproj", "{EEE26DCF-D725-4B4A-B78B-10B2B69454AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -274,6 +276,10 @@ Global
 		{A0C07F50-EF9F-4E0B-B24C-0F7408DF8745}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C07F50-EF9F-4E0B-B24C-0F7408DF8745}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C07F50-EF9F-4E0B-B24C-0F7408DF8745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE26DCF-D725-4B4A-B78B-10B2B69454AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE26DCF-D725-4B4A-B78B-10B2B69454AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE26DCF-D725-4B4A-B78B-10B2B69454AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE26DCF-D725-4B4A-B78B-10B2B69454AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F750E067-B565-4890-B772-676A43434934} = {8E838322-09D8-43CA-B809-0CEDE7B8F0DB}

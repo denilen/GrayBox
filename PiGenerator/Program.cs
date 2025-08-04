@@ -10,7 +10,7 @@ internal static class Program
 
     private static void Main(string[] args)
     {
-        const int iterations = 1000000;
+        const int iterations = 100000;
         const int chudnovskyIterations = 8; // Each iteration adds ~14 digits
         const int bbpIterations = 100;
 
